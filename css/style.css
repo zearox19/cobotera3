@@ -1,0 +1,206 @@
+/* 
+  COBOTERA Design System
+  Theme: Dark Cinematic / Navy / Cyan
+*/
+
+:root {
+  /* Base Colors - Dark Theme */
+  --color-bg-base: #050a15;
+  --color-bg-surface: #0d1a2d;
+  --color-text-main: #e0e6ed;
+  --color-text-muted: #8892a4;
+  
+  /* Accents */
+  --color-accent-blue: #00B4D8;
+  --color-accent-cyan: #00B4D8;
+  --color-accent-cyan-glow: rgba(0, 180, 216, 0.2);
+  
+  /* Layout */
+  --nav-height: 80px;
+  
+  /* Borders */
+  --border-thin: 1px solid rgba(0, 180, 216, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+a {
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* Nav */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: rgba(5, 10, 21, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: var(--border-thin);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.page-section {
+  padding-top: calc(var(--nav-height) + 2rem);
+  padding-bottom: 4rem;
+  min-height: 100vh;
+}
+
+/* Cards */
+.card-light {
+  background: var(--color-bg-surface);
+  color: var(--color-text-main);
+  border: var(--border-thin);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-light h1, .card-light h2, .card-light h3, .card-light h4, .card-light h5, .card-light h6 {
+  color: #fff;
+}
+
+.card-glass {
+  background: rgba(13, 26, 45, 0.8);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(0, 180, 216, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-glass:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 180, 216, 0.15);
+  border-color: rgba(0, 180, 216, 0.3);
+}
+
+/* Animations */
+@keyframes eyeBlink {
+  0% { transform: scaleY(1); }
+  93% { transform: scaleY(1); }
+  95% { transform: scaleY(0); }
+  97% { transform: scaleY(1); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes brushRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes statusPulse {
+  0% { opacity: 0.3; filter: blur(2px); }
+  50% { opacity: 1; filter: blur(6px); }
+  100% { opacity: 0.3; filter: blur(2px); }
+}
+
+@keyframes idleBreathe {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes ambientPulse {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(4%, -3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Utility Animation Classes */
+.anim-eye-blink {
+  animation: eyeBlink 4s infinite linear;
+  display: inline-block;
+}
+
+.anim-brush-rotate {
+  animation: brushRotate 8s infinite linear;
+  display: inline-block;
+}
+
+.anim-status-pulse {
+  animation: statusPulse 2s infinite ease-in-out;
+}
+
+.anim-idle-breathe {
+  animation: idleBreathe 6s infinite ease-in-out;
+}
+
+.anim-ambient-pulse {
+  animation: ambientPulse 15s infinite ease-in-out alternate;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--color-accent-cyan);
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 20px rgba(0, 180, 216, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-holographic, .btn-secondary {
+  background: transparent;
+  color: var(--color-accent-cyan);
+  border: 1px solid var(--color-accent-cyan);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-holographic:hover, .btn-secondary:hover {
+  background: var(--color-accent-cyan-glow);
+  box-shadow: 0 4px 15px var(--color-accent-cyan-glow);
+}
