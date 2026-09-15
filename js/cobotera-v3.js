@@ -86,10 +86,51 @@ const consultationForm = document.getElementById('consultation-form');
 const formStatus = document.getElementById('form-status');
 
 if (consultationForm) {
-  consultationForm.addEventListener('submit', () => {
+  consultationForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!consultationForm.checkValidity()) {
+      consultationForm.reportValidity();
+      return;
+    }
+
+    const submitButton = consultationForm.querySelector('button[type="submit"]');
+    const formData = Object.fromEntries(new FormData(consultationForm).entries());
+    delete formData._next;
+
     if (formStatus) {
       formStatus.className = 'form-status';
       formStatus.textContent = 'Anfrage wird gesendet …';
+    }
+    if (submitButton) submitButton.disabled = true;
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/info@cobotera.de', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.success === false || result.success === 'false') {
+        throw new Error('Form submission failed');
+      }
+
+      consultationForm.reset();
+      if (formStatus) {
+        formStatus.className = 'form-status success';
+        formStatus.textContent = 'Vielen Dank. Ihre Anfrage wurde erfolgreich übermittelt.';
+      }
+    } catch (error) {
+      if (formStatus) {
+        formStatus.className = 'form-status error';
+        formStatus.innerHTML = 'Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie direkt an <a href="mailto:info@cobotera.de">info@cobotera.de</a>.';
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
     }
   });
 }

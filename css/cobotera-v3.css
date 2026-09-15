@@ -917,6 +917,12 @@ footer{
   transform:translateY(-2px);
   box-shadow:0 14px 32px rgba(29,214,239,.18);
 }
+.submit-btn:disabled{
+  opacity:.62;
+  cursor:wait;
+  transform:none;
+  box-shadow:none;
+}
 .submit-btn span{margin-left:8px}
 .honeypot{position:absolute!important;left:-9999px!important;opacity:0!important}
 .form-status{
@@ -928,6 +934,7 @@ footer{
 }
 .form-status.success{color:#7ee5bd}
 .form-status.error{color:#ff9d9d}
+.form-status.error a{color:#dffaff;text-decoration:underline}
 
 @media(max-width:900px){
   .contact-layout{grid-template-columns:1fr;gap:34px}
