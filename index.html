@@ -1,1650 +1,501 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cobotera – Autonome Robotiklösungen</title>
-  <meta name="description" content="Cobotera unterstützt Unternehmen bei der Auswahl und Einführung professioneller Reinigungs-, Transport- und Serviceroboter.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    :root {
-      --primary: #00b4d8;
-      --navbar-height: 70px;
-      --navy: #0B192C;
-      --cyan: #00B4D8;
-      --bg-dark: #050a15;
-      --bg-card: #0d1a2d;
-      --bg-card-hover: #112240;
-      --text-light: #e0e6ed;
-      --text-muted: #8892a4;
-      --border-subtle: rgba(0,180,216,0.12);
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .page-section { display: none; }
-    .page-section.active { display: block; }
-    #page-home { padding-top: 0 !important; padding-bottom: 0 !important; }
-
-    .ambient-glow {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      min-height: 100vh;
-    }
-
-    .card-glass {
-      background: linear-gradient(145deg, rgba(13, 26, 45, 0.7), rgba(13, 26, 45, 0.3)) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
-      border-radius: 16px !important;
-      padding: 2rem !important;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-      position: relative;
-      overflow: hidden;
-      color: var(--text-light) !important;
-      transition: all 0.4s ease;
-    }
-    .card-glass:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 180, 216, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-      border-color: rgba(0, 180, 216, 0.4) !important;
-      background: linear-gradient(145deg, rgba(13, 26, 45, 0.8), rgba(13, 26, 45, 0.4)) !important;
-    }
-    .card-glass h3 { color: #fff !important; }
-    .card-glass p { color: var(--text-muted) !important; }
-
-    .card-light {
-      background: var(--bg-card) !important;
-      color: var(--text-light) !important;
-      border-radius: 16px !important;
-      padding: 2rem !important;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
-      border: 1px solid var(--border-subtle);
-    }
-    .card-light h1, .card-light h2, .card-light h3, .card-light h4 { color: #fff !important; }
-    .card-light p, .card-light span, .card-light label, .card-light div, .card-light li, .card-light strong { color: var(--text-light) !important; }
-    .card-light .form-control {
-      background: #0a1628 !important;
-      color: var(--text-light) !important;
-      border: 1px solid rgba(0,180,216,0.2) !important;
-    }
-
-    .highlight-savings {
-      font-size: 3rem !important;
-      font-weight: 800 !important;
-      color: var(--cyan) !important;
-      display: block;
-      margin-top: 1rem;
-    }
-
-    /* Header - Invisible */
-    .site-header {
-      background: transparent !important;
-      backdrop-filter: none !important;
-      border-bottom: none !important;
-      position: absolute;
-      width: 100%;
-      top: 0;
-      height: var(--navbar-height) !important;
-      max-height: none !important;
-      padding: 0 !important;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-    }
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-      color: #fff !important;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .main-nav {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-menu-link {
-      color: rgba(255,255,255,0.7) !important;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-    .nav-menu-link:hover { color: var(--cyan) !important; }
-    .menu-toggle.nav-hamburger {
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      display: none;
-    }
-
-    /* Buttons */
-    .btn-cinematic-primary {
-      background: linear-gradient(135deg, var(--cyan), #0077b6);
-      color: #fff;
-      border: none;
-      padding: 1rem 2.5rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,180,216,0.3);
-      transition: all 0.3s ease;
-    }
-    .btn-cinematic-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,180,216,0.5);
-    }
-    .btn-cinematic-secondary {
-      background: rgba(0, 180, 216, 0.05);
-      color: var(--cyan);
-      border: 1px solid rgba(0,180,216,0.5);
-      backdrop-filter: blur(5px);
-      padding: 1rem 2.5rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .btn-cinematic-secondary:hover {
-      background: rgba(0,180,216,0.15);
-      border-color: var(--cyan);
-      transform: translateY(-3px);
-    }
-
-    /* ============================================
-       COMPASS HERO - Dark Cinematic (like image)
-       ============================================ */
-    .compass-hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding-top: var(--navbar-height);
-      position: relative;
-      background: #02050a;
-      overflow: hidden;
-    }
-    .compass-floor {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 35%;
-      background: linear-gradient(to bottom, rgba(0,180,216,0.06), transparent);
-      border-top: 1px solid rgba(255,255,255,0.04);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .compass-hero::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 800px; height: 800px;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(0,180,216,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .compass-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 120px;
-      background: linear-gradient(to top, rgba(0,180,216,0.03), transparent);
-      pointer-events: none;
-    }
-    .compass-scaler {
-      position: relative;
-      width: 800px; height: 800px;
-      z-index: 10;
-      
-      --compass-scale: 1;
-      animation: floatCompass 14s ease-in-out infinite;
-      
-      /* Trim the layout bounding box to match the scaled visual box perfectly */
-      /* Modest upward shift since padding is removed */
-      margin-top: calc(-400px * (1 - var(--compass-scale)) - 5vh);
-      margin-bottom: calc(-400px * (1 - var(--compass-scale)));
-      margin-left: calc(-400px * (1 - var(--compass-scale)));
-      margin-right: calc(-400px * (1 - var(--compass-scale)));
-    }
-    
-    @keyframes floatCompass {
-      0% { transform: scale(var(--compass-scale)) rotate(-1deg); }
-      50% { transform: scale(var(--compass-scale)) rotate(1deg); }
-      100% { transform: scale(var(--compass-scale)) rotate(-1deg); }
-    }
-
-    @keyframes orbitSlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .orbiting-rings {
-      transform-origin: 400px 400px;
-      animation: orbitSlow 160s linear infinite;
-    }
-    
-    /* Dynamically scale based on width OR height to always fit the screen */
-    @media (max-width: 1000px) {
-      .compass-scaler { --compass-scale: 0.9; }
-    }
-    @media (max-width: 850px) {
-      .compass-scaler { --compass-scale: 0.8; }
-    }
-    @media (max-width: 750px) {
-      .compass-scaler { --compass-scale: 0.7; }
-    }
-    @media (max-width: 650px) {
-      .compass-scaler { --compass-scale: 0.6; }
-    }
-    @media (max-width: 550px) {
-      .compass-scaler { --compass-scale: 0.5; }
-    }
-    @media (max-width: 450px) {
-      .compass-scaler { --compass-scale: 0.4; }
-    }
-    
-    /* Height based scaling (only for extremely short screens) */
-    @media (max-height: 750px) and (min-width: 851px) {
-      .compass-scaler { --compass-scale: 0.85; }
-    }
-    @media (max-height: 650px) and (min-width: 751px) {
-      .compass-scaler { --compass-scale: 0.75; }
-    }
-    
-    .compass-center-logo {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 12;
-    }
-    .compass-center-logo svg {
-      width: 120px; height: 120px;
-      filter: drop-shadow(0 0 30px rgba(0,180,216,0.4));
-    }
-
-    /* Compass labels with icons */
-    .compass-nav-item {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      z-index: 20;
-    }
-    .compass-nav-item:hover { transform: scale(1.1); }
-    .compass-nav-item:hover .compass-icon-circle { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,180,216,0.4); background: rgba(0,180,216,0.05); }
-    .compass-nav-item:hover .compass-nav-text { color: var(--cyan); text-shadow: 0 0 10px rgba(0,180,216,0.5); }
-    .compass-icon-circle {
-      width: 48px; height: 48px;
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      background: transparent;
-    }
-    .compass-icon-circle svg {
-      width: 20px; height: 20px;
-      stroke: rgba(255,255,255,0.9);
-      fill: none;
-      stroke-width: 1.5;
-    }
-    .compass-nav-text {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.9);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      text-align: center;
-      line-height: 1.4;
-      transition: all 0.3s ease;
-    }
-
-    /* 8 positions precisely mapped to the outer ring (r=320, container=800) */
-    .compass-nav-item.pos-top { top: 10%; left: 50%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-top:hover { transform: translate(-50%, -50%) scale(1.1); }
-    .compass-nav-item.pos-top-right { top: 21.7%; left: 78.3%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-top-right:hover { transform: translate(-50%, -50%) scale(1.1); }
-    .compass-nav-item.pos-right { top: 50%; left: 90%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-right:hover { transform: translate(-50%, -50%) scale(1.1); }
-    .compass-nav-item.pos-bottom-right { top: 78.3%; left: 78.3%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-bottom-right:hover { transform: translate(-50%, -50%) scale(1.1); }
-    .compass-nav-item.pos-bottom { top: 90%; left: 50%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-bottom:hover { transform: translate(-50%, -50%) scale(1.1); }
-    .compass-nav-item.pos-bottom-left { top: 78.3%; left: 21.7%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-bottom-left:hover { transform: translate(-50%, -50%) scale(1.1); }
-    .compass-nav-item.pos-left { top: 50%; left: 10%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-left:hover { transform: translate(-50%, -50%) scale(1.1); }
-    .compass-nav-item.pos-top-left { top: 21.7%; left: 21.7%; transform: translate(-50%, -50%); }
-    .compass-nav-item.pos-top-left:hover { transform: translate(-50%, -50%) scale(1.1); }
-
-    /* Glowing Arrow / Pointer matched to the image */
-    .compass-pointer-container {
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 0; height: 0;
-      z-index: 15;
-      pointer-events: none;
-      transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .compass-pointer-line {
-      position: absolute;
-      bottom: 220px; /* Starts exactly at the middle ring */
-      left: -1px;
-      width: 2px;
-      height: 100px; /* Reaches to the outer ring */
-      background: linear-gradient(to top, var(--cyan), rgba(0,180,216,0));
-      filter: drop-shadow(0 0 6px var(--cyan));
-    }
-    .compass-pointer-flare {
-      position: absolute;
-      bottom: 216px; /* Centered exactly on the middle ring */
-      left: -4px;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 0 15px 4px var(--cyan), 0 0 30px 8px var(--cyan);
-    }
-
-    /* SVG glow animation for dots */
-    @keyframes dotPulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-    .glow-dot { animation: dotPulse 3s ease-in-out infinite; }
-
-    /* Solution image cards */
-    .solution-img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      background: rgba(0,0,0,0.2); /* faint dark background to blend any letterboxing */
-    }
-
-    /* General Typography & Spacing */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-    .pt-nav {
-      padding-top: calc(var(--navbar-height) + 2rem);
-    }
-    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; color: #fff; }
-
-    .solutions-grid, .industry-grid, .calc-grid, .contact-grid {
-      display: grid;
-      gap: 2rem;
-    }
-    .solutions-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .industry-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .calc-grid { grid-template-columns: 1fr 1fr; }
-    .contact-grid { grid-template-columns: 2fr 1fr; }
-
-    .btn {
-      padding: 0.85rem 1.75rem;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .btn-primary { 
-      background: linear-gradient(135deg, var(--cyan), #0077b6);
-      color: #fff; 
-      box-shadow: 0 4px 15px rgba(0,180,216,0.25);
-    }
-    .btn-primary:hover { 
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,180,216,0.4); 
-    }
-    .btn-secondary { 
-      background: rgba(0,180,216,0.05); 
-      color: var(--cyan); 
-      border: 1px solid rgba(0,180,216,0.4); 
-    }
-    .btn-secondary:hover {
-      background: rgba(0,180,216,0.15);
-      border-color: var(--cyan);
-      transform: translateY(-2px);
-    }
-
-    .ind-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .form-group { margin-bottom: 1.5rem; }
-    .form-control {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 8px;
-      border: 1px solid rgba(0,180,216,0.2);
-      background: #0a1628;
-      color: var(--text-light);
-      font-family: inherit;
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: var(--cyan);
-      box-shadow: 0 0 10px rgba(0,180,216,0.2);
-    }
-
-    .faq-item { margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .faq-question {
-      width: 100%; display: flex; justify-content: space-between; align-items: center;
-      background: none; border: none; padding: 1rem 0; font-size: 1.1rem; font-weight: 600;
-      cursor: pointer; text-align: left; color: var(--text-light);
-    }
-    .faq-answer { display: none; padding: 0 0 1.5rem 0; color: var(--text-muted); line-height: 1.6; }
-    .faq-answer.active { display: block; }
-
-    /* Footer-text color fix */
-    .legal-content p, .legal-content strong { color: var(--text-light) !important; }
-
-    @media (max-width: 992px) {
-      .calc-grid, .contact-grid { grid-template-columns: 1fr; }
-      .nav-menu { display: none; }
-      .menu-toggle { display: block; }
-    }
-    @media (max-width: 768px) {
-      .compass-nav-text { font-size: 0.6rem; letter-spacing: 0.1em; }
-    }
-  
-    .ind-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .ind-card-header h3 { margin: 0; font-size: 1.1rem; }
-    .ind-expand-icon {
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-    .industry-card { cursor: pointer; transition: all 0.4s ease; }
-    .industry-card.expanded {
-      grid-column: 1 / -1;
-    }
-    .industry-card.expanded .ind-expand-icon {
-      transform: rotate(180deg);
-    }
-    .ind-card-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
-      opacity: 0;
-      margin-top: 0;
-      display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      align-items: center;
-    }
-    .industry-card.expanded .ind-card-body {
-      max-height: 800px;
-      opacity: 1;
-      margin-top: 1rem;
-    }
-    .ind-card-content {
-      flex: 1;
-    }
-    .ind-card-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-    .ind-card-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      max-height: 300px;
-      object-fit: cover;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-    @media (max-width: 768px) {
-      .ind-card-body {
-        flex-direction: column;
-      }
-      .ind-card-image img {
-        max-height: 200px;
-      }
-    }
-    .ind-card-body ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .ind-card-body li {
-      position: relative;
-      padding-left: 1.2rem;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.4;
-    }
-    .ind-card-body li::before {
-      content: '•';
-      color: var(--cyan);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    /* Lösungen Page Styles */
-    .loesungen-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .loesungen-title-area {
-      flex: 1;
-      min-width: 300px;
-    }
-    .loesungen-stats-area {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    .loesungen-stat-box {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .loesungen-stat-divider {
-      width: 1px;
-      height: 60px;
-      background: rgba(255,255,255,0.1);
-    }
-    .loesungen-subheader {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
-    }
-    .loesungen-subheader::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(255,255,255,0.1);
-    }
-    .loesungen-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    @media(min-width: 1100px) {
-      .loesungen-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .loesungen-card {
-      background: linear-gradient(145deg, rgba(13, 26, 45, 0.7), rgba(13, 26, 45, 0.3));
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 220px;
-    }
-    .loesungen-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,180,216,0.15);
-      border-color: rgba(0,180,216,0.3);
-    }
-    .loesungen-card-img {
-      width: 40%;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-    .loesungen-card-img::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background: linear-gradient(to right, transparent, rgba(13, 26, 45, 0.9));
-    }
-    .loesungen-card-content {
-      width: 60%;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .loesungen-card-icon {
-      color: var(--cyan);
-      margin-bottom: 0.5rem;
-    }
-    .loesungen-card-title {
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: #fff;
-      line-height: 1.2;
-    }
-    .loesungen-card-subtitle {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.8rem;
-    }
-    .loesungen-card-desc {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.4;
-      flex-grow: 1;
-    }
-    .loesungen-card-btn {
-      align-self: flex-start;
-      margin-top: 1rem;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .loesungen-card:hover .loesungen-card-btn {
-      background: var(--cyan);
-      border-color: var(--cyan);
-    }
-    
-    .loesungen-cta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-      padding: 2rem;
-    }
-    .loesungen-cta-left {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex: 1;
-      min-width: 300px;
-    }
-    .loesungen-cta-icon {
-      width: 50px;
-      height: 50px;
-      background: rgba(0,180,216,0.1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cyan);
-      flex-shrink: 0;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cobotera – Intelligente Robotik, messbare Entlastung</title>
+  <meta name="description" content="Cobotera begleitet Unternehmen bei Auswahl, Pilotierung, Einführung und Betreuung professioneller Robotiklösungen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cobotera-v3.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-container">
-    <div style="display: inline-flex; flex-direction: column; padding-top: 8px;">
-      <a class="nav-logo" onclick="navigateTo('/')" style="margin-bottom: 2px; padding: 0; display: flex; align-items: center;">
-        <span style="font-weight: bold; font-size: 1.5rem; letter-spacing: 1px;">CO<span style="color:#00B4D8">BOT</span><span style="color:#8892a4">ERA</span></span>
-        <img src="assets/images/logo-3d-cropped.png" alt="Cobotera Logo" style="height: 28px; width: auto; vertical-align: middle; margin-left: 8px;">
-      </a>
-      <div style="font-family: var(--font-heading); font-size: 0.72rem; color: rgba(255,255,255,0.75); line-height: 1.4; font-weight: 500; text-transform: uppercase; display: flex; flex-direction: column;">
-        <span style="letter-spacing: 0px; white-space: nowrap;">Intelligente Robotik.</span>
-        <span style="letter-spacing: 0.8px; white-space: nowrap;">Messbare Entlastung.</span>
-      </div>
-    </div>
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<header class="site-header" id="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="#home" aria-label="Cobotera Startseite">
+      <img src="assets/images/logo-3d-cropped.png" alt="">
+      <span class="brand-lockup">
+        <span class="brand-name">CO<span>BOT</span>ERA <em>GMBH</em></span>
+        <small>AUTOMATISIERUNG. PARTNERSCHAFT. ZUKUNFT.</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#loesungen">Lösungen</a>
+      <a href="#branchen">Branchen</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#cobotera">Über uns</a>
+    </nav>
+
+    <a class="nav-cta" href="#beratung-form">Beratung anfragen</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen">☰</button>
   </div>
 </header>
 
-<main id="app-content">
+<main>
+  <section class="hero" id="home">
+    <div class="hero-glow glow-one"></div>
+    <div class="hero-glow glow-two"></div>
 
-  <!-- PAGE 1: STARTSEITE (Interactive Compass) -->
-  <section id="page-home" class="page-section active ambient-glow">
-    <div class="compass-hero" id="compass-hero">
-      <canvas id="starfield" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;"></canvas>
-      <div class="compass-floor"></div>
-      <div class="compass-scaler" id="compass-container">
-
-        <!-- SVG Orbital Rings + Cross Lines + Glowing Dots -->
-        <svg class="compass-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;">
-          
-          <!-- Orbiting Rings & Dots -->
-          <g class="orbiting-rings">
-            <!-- Inner Ring -->
-            <circle cx="400" cy="400" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-            <!-- Middle Ring (Tick marks) -->
-            <circle cx="400" cy="400" r="220" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="1 5"/>
-            <circle cx="400" cy="400" r="217" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <!-- Outer Ring (Faint) -->
-            <circle cx="400" cy="400" r="320" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 15"/>
-
-            <!-- Glowing dots at the 8 intersections on the middle ring (r=220) -->
-            <circle cx="400" cy="180" r="2.5" fill="#fff" />
-            <circle cx="555.5" cy="244.5" r="2.5" fill="#fff" />
-            <circle cx="620" cy="400" r="2.5" fill="#fff" />
-            <circle cx="555.5" cy="555.5" r="2.5" fill="#fff" />
-            <circle cx="400" cy="620" r="2.5" fill="#fff" />
-            <circle cx="244.5" cy="555.5" r="2.5" fill="#fff" />
-            <circle cx="180" cy="400" r="2.5" fill="#fff" />
-            <circle cx="244.5" cy="244.5" r="2.5" fill="#fff" />
-          </g>
-
-          <!-- Fixed Crosshairs & Connector Lines -->
-          <g class="fixed-lines">
-            <!-- Crosshairs -->
-            <line x1="400" y1="0" x2="400" y2="800" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <line x1="0" y1="400" x2="800" y2="400" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            
-            <!-- Diagonal faint lines (from r=220 to r=320) -->
-            <line x1="555.5" y1="244.5" x2="626.3" y2="173.7" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <line x1="555.5" y1="555.5" x2="626.3" y2="626.3" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <line x1="244.5" y1="555.5" x2="173.7" y2="626.3" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <line x1="244.5" y1="244.5" x2="173.7" y2="173.7" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-          </g>
-        </svg>
-
-        <!-- Center Cobotera Logo -->
-        <div class="compass-center-logo">
-          <img src="assets/images/logo-3d-cropped.png" alt="Cobotera 3D Logo" style="width: 160px; height: auto; max-width: 90vw; filter: drop-shadow(0 0 40px rgba(0,180,216,0.2));">
-        </div>
-
-        <!-- Glowing Arrow (Needle) matched to the image (cyan flare + segment) -->
-        <div class="compass-pointer-container" id="compass-needle">
-          <div class="compass-pointer-line"></div>
-          <div class="compass-pointer-flare"></div>
-        </div>
-
-        <!-- 8 Navigation Items with Icons -->
-        <!-- TOP: Lösungen -->
-        <div class="compass-nav-item pos-top" onclick="navigateTo('/loesungen')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z" stroke="currentColor" fill="none"/></svg>
-          </div>
-          <span class="compass-nav-text">Lösungen</span>
-        </div>
-        <!-- TOP-RIGHT: Branchen -->
-        <div class="compass-nav-item pos-top-right" onclick="navigateTo('/branchen')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><rect x="4" y="8" width="4" height="12" rx="1" stroke="currentColor" fill="none"/><rect x="10" y="4" width="4" height="16" rx="1" stroke="currentColor" fill="none"/><rect x="16" y="10" width="4" height="10" rx="1" stroke="currentColor" fill="none"/></svg>
-          </div>
-          <span class="compass-nav-text">Branchen</span>
-        </div>
-        <!-- RIGHT: Leistungen -->
-        <div class="compass-nav-item pos-right" onclick="navigateTo('/leistungen')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" fill="none"/><line x1="9" y1="8" x2="15" y2="8" stroke="currentColor"/><line x1="9" y1="12" x2="15" y2="12" stroke="currentColor"/><line x1="9" y1="16" x2="12" y2="16" stroke="currentColor"/></svg>
-          </div>
-          <span class="compass-nav-text">Leistungen</span>
-        </div>
-        <!-- BOTTOM-RIGHT: Wirtschaftlichkeit -->
-        <div class="compass-nav-item pos-bottom-right" onclick="navigateTo('/wirtschaftlichkeit')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="currentColor" fill="none"/><polyline points="16 7 22 7 22 13" stroke="currentColor" fill="none"/></svg>
-          </div>
-          <span class="compass-nav-text">Wirtschaft-<br>lichkeit</span>
-        </div>
-        <!-- BOTTOM: Kontakt -->
-        <div class="compass-nav-item pos-bottom" onclick="navigateTo('/kontakt')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" fill="none"/><polyline points="2 5 12 13 22 5" stroke="currentColor" fill="none"/></svg>
-          </div>
-          <span class="compass-nav-text">Kontakt</span>
-        </div>
-        <!-- BOTTOM-LEFT: FAQ -->
-        <div class="compass-nav-item pos-bottom-left" onclick="navigateTo('/faq')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" fill="none"/><circle cx="12" cy="17" r="0.5" fill="currentColor" stroke="none"/></svg>
-          </div>
-          <span class="compass-nav-text">FAQ</span>
-        </div>
-        <!-- LEFT: Über uns -->
-        <div class="compass-nav-item pos-left" onclick="navigateTo('/ueber-uns')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" fill="none"/><circle cx="9" cy="7" r="4" stroke="currentColor" fill="none"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" fill="none"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" fill="none"/></svg>
-          </div>
-          <span class="compass-nav-text">Über uns</span>
-        </div>
-        <!-- TOP-LEFT: Robotik-Portfolio -->
-        <div class="compass-nav-item pos-top-left" onclick="navigateTo('/loesungen')">
-          <div class="compass-icon-circle">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" fill="none"/><path d="M2 17l10 5 10-5" stroke="currentColor" fill="none"/><path d="M2 12l10 5 10-5" stroke="currentColor" fill="none"/></svg>
-          </div>
-          <span class="compass-nav-text">Robotik-<br>Portfolio</span>
-        </div>
-
-      </div>
+    <div class="hero-intro reveal">
+      <span class="eyebrow">INTELLIGENTE ROBOTIK FÜR UNTERNEHMEN</span>
+      <h1>Automatisierung.<br><span>Partnerschaft. Zukunft.</span></h1>
+      <p>
+        Cobotera verbindet moderne Robotik mit realen Betriebsabläufen –
+        von der Auswahl über Pilotprojekte bis zur Einführung und Betreuung.
+      </p>
     </div>
 
-    <!-- Solutions with real robot images -->
-    <div class="container" style="padding-bottom: 4rem;">
-      <h2 style="text-align:center; margin-bottom: 3rem;">Unsere Lösungen</h2>
-      <div class="solutions-grid">
-        <div class="solution-card card-glass" onclick="navigateTo('/loesungen')">
-          <img src="assets/images/robot_cleaning_nobrand.jpg" alt="Reinigungsroboter" class="solution-img">
-          <h3>Reinigungsrobotik</h3>
-          <p>Autonome Bodenpflege für Gewerbe und Industrie.</p>
+    <div class="compass-stage" id="compass-stage">
+      <div class="orbit orbit-a"></div>
+      <div class="orbit orbit-b"></div>
+      <div class="orbit orbit-c"></div>
+
+      <div class="compass-line horizontal"></div>
+      <div class="compass-line vertical"></div>
+      <div class="compass-line diagonal-one"></div>
+      <div class="compass-line diagonal-two"></div>
+
+      <div class="needle" id="needle">
+        <span class="needle-line"></span>
+        <span class="needle-tip"></span>
+      </div>
+
+      <div class="center-core">
+        <div class="center-halo"></div>
+        <div class="center-brand">
+          <img src="assets/images/logo-3d-cropped.png" alt="">
+          <span>CO<span>BOT</span>ERA</span>
         </div>
-        <div class="solution-card card-glass" onclick="navigateTo('/loesungen')">
-          <img src="assets/images/robot-security.jpg" alt="Sicherheitsroboter" class="solution-img">
-          <h3>Sicherheitsrobotik</h3>
-          <p>24/7-Überwachung, 360° Kameras, 30–50% Einsparung.</p>
+      </div>
+
+      <a class="nav-node node-top" href="#loesungen">
+        <span class="node-icon">01</span>
+        <span class="node-label">Lösungen</span>
+      </a>
+
+      <a class="nav-node node-top-right" href="#branchen">
+        <span class="node-icon">02</span>
+        <span class="node-label">Branchen</span>
+      </a>
+
+      <a class="nav-node node-right" href="#leistungen">
+        <span class="node-icon">03</span>
+        <span class="node-label">Leistungen</span>
+      </a>
+
+      <a class="nav-node node-bottom-right" href="#beratung-form">
+        <span class="node-icon">04</span>
+        <span class="node-label">Kontakt</span>
+      </a>
+
+      <a class="nav-node node-bottom" href="#prozess">
+        <span class="node-icon">05</span>
+        <span class="node-label">Einführung</span>
+      </a>
+
+      <a class="nav-node node-bottom-left" href="#faq">
+        <span class="node-icon">06</span>
+        <span class="node-label">FAQ</span>
+      </a>
+
+      <a class="nav-node node-left" href="#cobotera">
+        <span class="node-icon">07</span>
+        <span class="node-label">Über uns</span>
+      </a>
+
+      <a class="nav-node node-top-left" href="#portfolio">
+        <span class="node-icon">08</span>
+        <span class="node-label">Portfolio</span>
+      </a>
+    </div>
+
+    <div class="hero-bottom reveal">
+      <span>BERLIN</span>
+      <span class="dot-separator"></span>
+      <span>DEUTSCHLANDWEIT TÄTIG</span>
+      <span class="dot-separator"></span>
+      <span>B2B ROBOTICS</span>
+    </div>
+  </section>
+
+  <section class="section intro-section" id="loesungen">
+    <div class="section-inner">
+      <div class="section-heading reveal">
+        <span class="section-kicker">UNSERE LÖSUNGEN</span>
+        <h2>Robotik, die sich<br><span>in den Alltag integriert.</span></h2>
+        <p>
+          Nicht jede Technologie passt zu jedem Unternehmen. Deshalb betrachten wir
+          Einsatzbereich, Umgebung, Personalentlastung und Wirtschaftlichkeit gemeinsam.
+        </p>
+      </div>
+
+      <div class="solution-showcase" id="portfolio">
+        <article class="solution-panel panel-wide reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/pudu-cc1-pro-black-mainbildpng-2598505.png?v=1760624206&width=1946" alt="Reinigungsrobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">01</span>
+            <div>
+              <h3>Reinigungsrobotik</h3>
+              <p>Zum Beispiel mit dem PUDU CC1 Pro in Schwarz – für professionelle autonome Bodenreinigung in modernen Gewerbeumgebungen.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/ow001202409098695a9bbe48c4ed2d2ca9cdf9677bdefpng-2565060_5ddf9f6b-bdb9-4f41-b9d2-594d0e5358c7.png?v=1755077808&width=1946" alt="Logistikrobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">02</span>
+            <div>
+              <h3>Transport & Logistik</h3>
+              <p>Mit dem Orionstar CarryBot 2 für interne Transporte, Materialflüsse und wiederkehrende Lieferwege.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/front-viewpng-2564278_b75d78bf-d9ef-464d-80a6-ced2dfb4be7b.png?v=1755077779&width=1946" alt="Servicerobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">03</span>
+            <div>
+              <h3>Service & Hospitality</h3>
+              <p>Mit dem Pudu BellaBot Pro für Service, Hospitality, Speise- oder Materialtransport im Front-of-House.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/unitree-go2-x-1png-2762773.png?v=1780319194&width=1946" alt="Sicherheitsrobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">04</span>
+            <div>
+              <h3>Sicherheit & Inspektion</h3>
+              <p>Mit dem Unitree Go2 X für Patrouillen, Geländeinspektion und moderne Sicherheits- oder Testkonzepte.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel panel-wide reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/ubtech-walker-s2-1png-2729512.png?v=1773388155&width=1946" alt="Outdoor Robotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">05</span>
+            <div>
+              <h3>Humanoide & Speziallösungen</h3>
+              <p>Zum Beispiel mit dem UBtech Walker S2 für fortschrittliche Spezialanwendungen, Intralogistik und Innovation.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="branchen">
+    <div class="section-inner">
+      <div class="section-heading center reveal">
+        <span class="section-kicker">EINSATZBEREICHE</span>
+        <h2>Wo Routine Zeit bindet,<br><span>entsteht Automatisierungspotenzial.</span></h2>
+      </div>
+
+      <div class="industry-orbit reveal">
+        <div class="industry-core">
+          <span>COBOTERA</span>
+          <small>ROBOTICS</small>
         </div>
-        <div class="solution-card card-glass" onclick="navigateTo('/loesungen')">
-          <img src="assets/images/robot-humanoid.jpg" alt="Humanoide Roboter" class="solution-img">
-          <h3>Humanoide Roboter</h3>
-          <p>Menschenähnlich, intelligenter, für die Zukunft gemacht.</p>
+
+        <div class="industry-chip chip-1"><b>Facility</b><span>Management</span></div>
+        <div class="industry-chip chip-2"><b>Hotels</b><span>Hospitality</span></div>
+        <div class="industry-chip chip-3"><b>Kliniken</b><span>Gesundheit</span></div>
+        <div class="industry-chip chip-4"><b>Logistik</b><span>Warehouse</span></div>
+        <div class="industry-chip chip-5"><b>Fitness</b><span>Studios</span></div>
+        <div class="industry-chip chip-6"><b>Retail</b><span>Handel</span></div>
+        <div class="industry-chip chip-7"><b>Büro</b><span>Business Center</span></div>
+        <div class="industry-chip chip-8"><b>Öffentlich</b><span>Einrichtungen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="leistungen">
+    <div class="section-inner">
+      <div class="section-heading reveal">
+        <span class="section-kicker">UNSER ANSATZ</span>
+        <h2>Nicht der Roboter zuerst.<br><span>Der Prozess zuerst.</span></h2>
+        <p>
+          Robotik funktioniert dann am besten, wenn Technik, Bedienung, Infrastruktur und
+          Wirtschaftlichkeit von Anfang an gemeinsam gedacht werden.
+        </p>
+      </div>
+
+      <div class="service-flow">
+        <div class="service-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Bedarf analysieren</h3>
+            <p>Flächen, Wege, Frequenzen, Personalaufwand und Rahmenbedingungen erfassen.</p>
+          </div>
         </div>
-        <div class="solution-card card-glass" onclick="navigateTo('/loesungen')">
-          <img src="assets/images/robot-outdoor.jpg" alt="Outdoor Robot Dogs" class="solution-img">
-          <h3>Outdoor & Robot Dogs</h3>
-          <p>Wetterfest IP65+, geländegängig und ausdauernd.</p>
+        <div class="service-step reveal">
+          <div class="step-num">02</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Technologie auswählen</h3>
+            <p>Geeignete Systeme und Einsatzszenarien vergleichen und bewerten.</p>
+          </div>
         </div>
-        <div class="solution-card card-glass" onclick="navigateTo('/loesungen')">
-          <img src="assets/images/robot-logistics.jpg" alt="Logistikroboter" class="solution-img">
-          <h3>Logistik- & Transportrobotik</h3>
-          <p>Autonome Intralogistik für Produktionshallen.</p>
+        <div class="service-step reveal">
+          <div class="step-num">03</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Pilotieren</h3>
+            <p>Technologie unter realen Bedingungen testen und die Alltagstauglichkeit prüfen.</p>
+          </div>
         </div>
-        <div class="solution-card card-glass" onclick="navigateTo('/loesungen')">
-          <img src="assets/images/robot_service_nobrand.jpg" alt="Serviceroboter" class="solution-img">
-          <h3>Service- & Empfangsrobotik</h3>
-          <p>Unterstützung an Rezeptionen und bei Verteilungen.</p>
+        <div class="service-step reveal">
+          <div class="step-num">04</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Einführen & betreuen</h3>
+            <p>Installation, Schulung, Übergabe und langfristige Unterstützung koordinieren.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE 2: LÖSUNGEN -->
-  <section id="page-loesungen" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <div class="loesungen-header">
-        <div class="loesungen-title-area">
-          <div style="color: var(--cyan); font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem;">UNSERE LÖSUNGEN</div>
-          <h1 style="font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem;">Intelligente Robotik für<br><span style="color: var(--cyan);">effizientere Abläufe</span></h1>
-          <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 500px;">Cobotera bietet maßgeschneiderte B2B-Robotersysteme für gewerbliche und industrielle Einsatzzwecke.</p>
+  <section class="section section-soft" id="prozess">
+    <div class="section-inner process-grid">
+      <div class="process-visual reveal">
+        <div class="scan-line"></div>
+        <div class="process-rings">
+          <span class="p-ring p1"></span>
+          <span class="p-ring p2"></span>
+          <span class="p-ring p3"></span>
         </div>
-        
-        <div class="loesungen-stats-area">
-          <div class="loesungen-stat-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem;"><path d="M14 13V17H10V13H14Z"/><path d="M14 13C14 11.8954 14.8954 11 16 11H18C19.1046 11 20 11.8954 20 13V21H4V13C4 11.8954 4.8954 11 6 11H8C9.1046 11 10 11.8954 10 13"/><circle cx="12" cy="7" r="2"/></svg>
-            <div style="font-size: 1.8rem; font-weight: 700; color: var(--cyan); margin-bottom: 0.2rem;">100+</div>
-            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Projekte umgesetzt</div>
-          </div>
-          <div class="loesungen-stat-divider"></div>
-          <div class="loesungen-stat-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            <div style="font-size: 1.8rem; font-weight: 700; color: var(--cyan); margin-bottom: 0.2rem;">50+</div>
-            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Zufriedene Kunden</div>
-          </div>
-          <div class="loesungen-stat-divider"></div>
-          <div class="loesungen-stat-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-            <div style="font-size: 1.8rem; font-weight: 700; color: var(--cyan); margin-bottom: 0.2rem;">24/7</div>
-            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Unterstützung & Service</div>
-          </div>
+        <div class="process-center">
+          <span>01—04</span>
+          <b>ROBOTICS<br>IMPLEMENTATION</b>
         </div>
       </div>
-      
-      <div class="loesungen-subheader">Unser Robotik-Portfolio</div>
-      
-      <div class="loesungen-grid">
-        <!-- Card 1 -->
-        <div class="loesungen-card">
-          <div class="loesungen-card-img" style="background-image: url('assets/images/robot-cleaning.jpg');"></div>
-          <div class="loesungen-card-content">
-            <div class="loesungen-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><path d="M6.3 6.3l11.4 11.4"/><path d="M6.3 17.7L17.7 6.3"/></svg></div>
-            <div class="loesungen-card-title">Reinigungsrobotik</div>
-            <div class="loesungen-card-subtitle">(Autonome Bodenpflege)</div>
-            <div class="loesungen-card-desc">Autonome Reinigungslösungen für eine konstant saubere und hygienische Umgebung – effizient und zuverlässig.</div>
-            <div class="loesungen-card-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-          </div>
-        </div>
-        
-        <!-- Card 2 -->
-        <div class="loesungen-card">
-          <div class="loesungen-card-img" style="background-image: url('assets/images/robot-security.jpg');"></div>
-          <div class="loesungen-card-content">
-            <div class="loesungen-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-            <div class="loesungen-card-title">Sicherheitsrobotik</div>
-            <div class="loesungen-card-subtitle">(24/7-Überwachung)</div>
-            <div class="loesungen-card-desc">Zuverlässige Überwachung und Echtzeit-Erkennung für mehr Sicherheit – rund um die Uhr.</div>
-            <div class="loesungen-card-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-          </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="loesungen-card">
-          <div class="loesungen-card-img" style="background-image: url('assets/images/robot-humanoid.jpg');"></div>
-          <div class="loesungen-card-content">
-            <div class="loesungen-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-            <div class="loesungen-card-title">Humanoide Roboter</div>
-            <div class="loesungen-card-subtitle">(Intelligente Zukunftsassistenz)</div>
-            <div class="loesungen-card-desc">Intelligente Interaktion und Assistenz für Menschen in dynamischen Arbeits- und Serviceumgebungen.</div>
-            <div class="loesungen-card-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-          </div>
-        </div>
+      <div class="process-copy reveal">
+        <span class="section-kicker">EINFÜHRUNG</span>
+        <h2>Von der Idee bis<br><span>zum produktiven Einsatz.</span></h2>
+        <p>
+          Eine gute Einführung reduziert Fehlentscheidungen und stellt sicher,
+          dass die Lösung nicht nur technisch funktioniert, sondern auch im Alltag angenommen wird.
+        </p>
 
-        <!-- Card 4 -->
-        <div class="loesungen-card">
-          <div class="loesungen-card-img" style="background-image: url('assets/images/robot-outdoor.jpg');"></div>
-          <div class="loesungen-card-content">
-            <div class="loesungen-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div>
-            <div class="loesungen-card-title">Outdoor & Robot Dogs</div>
-            <div class="loesungen-card-subtitle">(Geländegängig)</div>
-            <div class="loesungen-card-desc">Robuste Mobilität in anspruchsvollem Gelände – ideal für Inspektionen, Sicherheit und Monitoring.</div>
-            <div class="loesungen-card-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="loesungen-card">
-          <div class="loesungen-card-img" style="background-image: url('assets/images/robot-logistics.jpg');"></div>
-          <div class="loesungen-card-content">
-            <div class="loesungen-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
-            <div class="loesungen-card-title">Logistik- & Transport</div>
-            <div class="loesungen-card-subtitle">(Intralogistik)</div>
-            <div class="loesungen-card-desc">Effizienter Materialtransport und smarte Intralogistik für maximale Produktivität.</div>
-            <div class="loesungen-card-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="loesungen-card">
-          <div class="loesungen-card-img" style="background-image: url('assets/images/service-robot.jpg');"></div>
-          <div class="loesungen-card-content">
-            <div class="loesungen-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h14"/><path d="M12 3v4"/><path d="M10 7a2 2 0 0 0 4 0"/><path d="M12 7c-2.76 0-5 2.24-5 5v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5c0-2.76-2.24-5-5-5z"/></svg></div>
-            <div class="loesungen-card-title">Service- & Empfang</div>
-            <div class="loesungen-card-subtitle">(Verteilung)</div>
-            <div class="loesungen-card-desc">Empfang, Information und Verteilung – für exzellenten Service im Alltag.</div>
-            <div class="loesungen-card-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
-          </div>
+        <div class="process-badges">
+          <span>DEMO</span>
+          <span>PILOT</span>
+          <span>MAPPING</span>
+          <span>TRAINING</span>
+          <span>AFTER-SALES</span>
         </div>
       </div>
-      
-      <!-- CTA Card -->
-      <div class="card-glass loesungen-cta">
-        <div class="loesungen-cta-left">
-          <div class="loesungen-cta-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          </div>
+    </div>
+  </section>
+
+  <section class="section" id="cobotera">
+    <div class="section-inner about-grid">
+      <div class="about-copy reveal">
+        <span class="section-kicker">ÜBER COBOTERA</span>
+        <h2>Robotik verständlich.<br><span>Einführung professionell.</span></h2>
+        <p>
+          Cobotera ist ein Berliner Robotikunternehmen für professionelle B2B-Anwendungen.
+          Wir begleiten Unternehmen nicht nur beim Kauf eines Geräts, sondern beim gesamten Einführungsprozess.
+        </p>
+
+        <div class="about-points">
+          <span>Herstellerübergreifende Auswahl</span>
+          <span>Praxisorientierte Beratung</span>
+          <span>Demonstrationen & Pilotprojekte</span>
+          <span>Installation, Schulung & Betreuung</span>
+        </div>
+
+        <div class="founder">
+          <b>EMRE KAAN YILDIRIM</b>
+          <span>Gründer & Geschäftsführer · Berlin</span>
+        </div>
+      </div>
+
+      <div class="about-logo reveal">
+        <div class="logo-aura"></div>
+        <div class="about-brand-lockup">
+          <img src="assets/images/logo-3d-cropped.png" alt="">
           <div>
-            <h3 style="margin-bottom: 0.25rem;">Individuelle Lösungen für Ihren Erfolg</h3>
-            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.4;">Jedes Unternehmen hat individuelle Anforderungen. Wir entwickeln maßgeschneiderte Robotiklösungen, die perfekt zu Ihren Prozessen passen.</p>
-          </div>
-        </div>
-        <a class="btn-primary" onclick="navigateTo('/kontakt')" style="cursor:pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;">
-          BERATUNG ANFORDERN
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGE 6: LEISTUNGEN -->
-  <section id="page-leistungen" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 2rem;">Unsere Leistungen</h1>
-      <p style="margin-bottom: 3rem;">Cobotera begleitet Ihr Unternehmen von der ersten Potenzialanalyse bis zur langfristigen Betriebsbetreuung.</p>
-      
-      <div class="card-light">
-        <ol style="margin-left: 2rem; display:flex; flex-direction:column; gap:1.5rem; line-height:1.6;">
-          <li><strong>Beratung & Analyse:</strong> Wir analysieren Ihre Anforderungen bis zur Anwendungsreife – ehrlich & unabhängig.</li>
-          <li><strong>Systemintegration:</strong> Wir integrieren Roboterlösungen nahtlos in Ihre bestehende Infrastruktur.</li>
-          <li><strong>Entwicklung & Individualisierung:</strong> Maßgeschneiderte B2B-Lösungen vom Greifer bis zur Software.</li>
-          <li><strong>Service & After-Sales:</strong> Zuverlässiger Support und Wartung für langfristige Performance.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGE 5: BRANCHEN (All 12 Industries) -->
-  <section id="page-branchen" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 2rem;">Robotiklösungen für Ihre Branche</h1>
-      <div class="industry-grid">
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Gebäudereinigung</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Entlastung bei Fachkräftemangel.</li><li>Konstante Reinigungsqualität rund um die Uhr.</li><li>Planbare Reinigungskosten.</li><li>Automatische Dokumentation der Reinigung.</li><li>Weniger Krankheitsausfälle.</li><li>Höhere Flächenleistung pro Stunde.</li><li>Reinigung außerhalb der Geschäftszeiten.</li><li>Gleichbleibende Hygienestandards.</li><li>Nachhaltiger Einsatz von Wasser und Chemie.</li><li>Mitarbeiter können anspruchsvollere Aufgaben übernehmen.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot_cleaning_nobrand.jpg" alt="Gebäudereinigung Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Hotellerie</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Saubere Lobby bereits vor dem ersten Gast.</li><li>Leiser Betrieb auch nachts.</li><li>Weniger Personalaufwand.</li><li>Höhere Gästezufriedenheit.</li><li>Permanente Bodenpflege.</li><li>Gleichbleibend gepflegter erster Eindruck.</li><li>Dokumentierte Reinigung für Qualitätsstandards.</li><li>Flexible Reinigung während des Betriebs.</li><li>Senkung der Betriebskosten.</li><li>Mehr Zeit für den Gästeservice.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-hotel.jpg" alt="Hotellerie Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Fitnessstudios</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Hygienische Trainingsflächen.</li><li>Reinigung auch während des Betriebs.</li><li>Saubere Eingangsbereiche.</li><li>Weniger Personalbindung.</li><li>Verbesserte Mitgliederzufriedenheit.</li><li>Permanente Entfernung von Schmutz.</li><li>Höhere Sauberkeitsstandards.</li><li>Optimierte Reinigungszeiten.</li><li>Dokumentierte Hygieneleistung.</li><li>Moderner Eindruck für Neukunden.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-fitness.jpg" alt="Fitnessstudios Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Pflege & Gesundheit</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Höchste Hygienestandards.</li><li>Entlastung des Pflegepersonals.</li><li>Reduzierung von Kreuzkontaminationen.</li><li>Dokumentierte Reinigungsprozesse.</li><li>Zuverlässige Flächenreinigung.</li><li>Reinigung außerhalb sensibler Zeiten.</li><li>Mehr Zeit für Patienten.</li><li>Gleichbleibende Qualität.</li><li>Nachhaltiger Ressourceneinsatz.</li><li>Unterstützung gesetzlicher Hygienevorgaben.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-care.jpg" alt="Pflege & Gesundheit Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Büroimmobilien</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Saubere Büros jeden Morgen.</li><li>Reinigung außerhalb der Arbeitszeiten.</li><li>Weniger Störungen im Büroalltag.</li><li>Planbare Reinigungskosten.</li><li>Attraktiver Arbeitsplatz.</li><li>Höhere Mitarbeiterzufriedenheit.</li><li>Gleichmäßige Reinigung aller Flächen.</li><li>Moderne Unternehmenswirkung.</li><li>Automatische Einsatzplanung.</li><li>Nachhaltiger Gebäudebetrieb.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-cleaning.jpg" alt="Büroimmobilien Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Einzelhandel</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Saubere Verkaufsflächen während der Öffnungszeiten.</li><li>Besseres Einkaufserlebnis.</li><li>Höhere Kundenzufriedenheit.</li><li>Permanente Bodenpflege.</li><li>Weniger Personalaufwand.</li><li>Reinigung ohne Betriebsunterbrechung.</li><li>Sicherheit durch saubere Böden.</li><li>Professioneller Markenauftritt.</li><li>Optimierte Reinigungskosten.</li><li>Mehr Zeit für Kundenberatung.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/service-robot.jpg" alt="Einzelhandel Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Einkaufszentren</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Reinigung großer Flächen ohne Unterbrechung.</li><li>Permanente Sauberkeit.</li><li>Einsatz auch bei hoher Besucherfrequenz.</li><li>Weniger Personalbedarf.</li><li>Dokumentierte Reinigung.</li><li>Höhere Sicherheit.</li><li>Attraktiver Gesamteindruck.</li><li>Geringere Betriebskosten.</li><li>Nachhaltiger Ressourceneinsatz.</li><li>Flexible Einsatzplanung.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-mall.jpg" alt="Einkaufszentren Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Industrie</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Reinigung großer Produktionsflächen.</li><li>Reduzierung von Staub und Schmutz.</li><li>Höhere Arbeitssicherheit.</li><li>Planbare Reinigungszyklen.</li><li>Weniger Produktionsunterbrechungen.</li><li>Zuverlässiger 24/7-Betrieb.</li><li>Entlastung des Personals.</li><li>Dokumentierte Reinigungsprozesse.</li><li>Höhere Maschinenverfügbarkeit.</li><li>Senkung langfristiger Betriebskosten.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-warehouse.jpg" alt="Industrie Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Lager & Logistik</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Permanente Bodenreinigung.</li><li>Weniger Staubentwicklung.</li><li>Höhere Sicherheit für Staplerverkehr.</li><li>Reinigung während des Betriebs.</li><li>Keine Produktionsunterbrechung.</li><li>Entlastung des Personals.</li><li>Verbesserte Lagerhygiene.</li><li>Dokumentierte Reinigung.</li><li>Optimierte Betriebskosten.</li><li>24/7-Einsatz möglich.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-warehouse.jpg" alt="Lager & Logistik Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Öffentliche Einrichtungen</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Höhere Sauberkeit für Besucher.</li><li>Entlastung des Reinigungspersonals.</li><li>Planbare Betriebskosten.</li><li>Gleichbleibende Reinigungsqualität.</li><li>Reinigung außerhalb der Öffnungszeiten.</li><li>Nachhaltiger Ressourceneinsatz.</li><li>Dokumentierte Reinigungsnachweise.</li><li>Modernes Erscheinungsbild.</li><li>Flexible Einsatzzeiten.</li><li>Zukunftssichere Gebäudebewirtschaftung.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-service.jpg" alt="Öffentliche Einrichtungen Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>Solarparkbetreiber</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Höhere Energieerträge.</li><li>Weniger Leistungsverluste durch Verschmutzung.</li><li>Automatisierte Reinigungszyklen.</li><li>Weniger Personaleinsatz.</li><li>Schonende Modulreinigung.</li><li>Geringerer Wasserverbrauch.</li><li>Schnellere Reinigung großer Parks.</li><li>Verlängerte Lebensdauer der Module.</li><li>Dokumentierte Reinigung.</li><li>Höherer Return on Investment.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-outdoor.jpg" alt="Solarparkbetreiber Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-        <div class="industry-card card-glass" onclick="toggleAccordion(this)">
-          <div class="ind-card-header">
-            <h3>PV-Dachanlagen</h3>
-            <svg class="ind-expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="ind-card-body">
-            <div class="ind-card-content">
-              <ul>
-                <li>Maximale Stromausbeute.</li><li>Entfernung von Staub und Pollen.</li><li>Weniger manuelle Arbeiten auf Dächern.</li><li>Schonende Reinigung.</li><li>Höhere Betriebssicherheit.</li><li>Längere Lebensdauer der Module.</li><li>Regelmäßige automatische Reinigung.</li><li>Geringerer Wartungsaufwand.</li><li>Mehr Wirtschaftlichkeit.</li><li>Nachhaltiger Anlagenbetrieb.</li>
-              </ul>
-            </div>
-            <div class="ind-card-image">
-              <img src="assets/images/robot-cleaning.jpg" alt="PV-Dachanlagen Reinigungsroboter">
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <script>
-        function toggleAccordion(clickedElement) {
-          const isExpanded = clickedElement.classList.contains('expanded');
-          
-          // Close all cards first
-          const allCards = document.querySelectorAll('.industry-card');
-          allCards.forEach(card => card.classList.remove('expanded'));
-          
-          // If the clicked element wasn't already expanded, expand it
-          if (!isExpanded) {
-            clickedElement.classList.add('expanded');
-            
-            // Scroll to element to ensure it's fully visible
-            setTimeout(() => {
-              clickedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 300);
-          }
-        }
-      </script>
-
-  </section>
-
-  <!-- PAGE 7: WIRTSCHAFTLICHKEIT (Calculator) -->
-  <section id="page-wirtschaftlichkeit" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 0.5rem;">Wirtschaftlichkeit</h1>
-      <p style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--cyan); font-weight: 600;">Automatisierung, die sich rechnen muss.</p>
-      <p style="margin-bottom: 3rem; color: rgba(255,255,255,0.8);">Vergleichen Sie Ihre heutigen Personalkosten mit einem automatisierten Reinigungsszenario &ndash; transparent, individuell und unverbindlich.</p>
-      <div class="calc-container">
-        <div class="calc-grid">
-          <div class="calc-form card-light">
-
-            <div class="form-group">
-              <label for="calc-area">Zu reinigende Fläche (m²)</label>
-              <input type="number" id="calc-area" class="form-control" placeholder="z.B. 2000">
-            </div>
-            <div class="form-group">
-              <label for="calc-days">Reinigungstage pro Woche</label>
-              <input type="number" id="calc-days" class="form-control" placeholder="z.B. 5">
-            </div>
-            <div class="form-group">
-              <label for="calc-hours">Bisheriger Stundenaufwand (pro Reinigung)</label>
-              <input type="number" id="calc-hours" class="form-control" placeholder="z.B. 4">
-            </div>
-            <div class="form-group">
-              <label for="calc-rate">Angenommener Stundensatz (€)</label>
-              <input type="number" id="calc-rate" class="form-control" placeholder="z.B. 25">
-            </div>
-            <div class="form-group">
-              <label for="calc-model">Präferiertes Modell</label>
-              <select id="calc-model" class="form-control">
-                <option value="basic">Einstiegsmodell (ca. 10.000€)</option>
-                <option value="pro">Profi-Modell (ca. 25.000€)</option>
-                <option value="industrial">Industrie-Modell (ca. 45.000€)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="calc-automation">Angenommene Automatisierungsquote</label>
-              <input type="range" id="calc-automation" min="10" max="90" value="50" class="form-control" style="padding:0; height:auto;">
-              <span id="calc-automation-val">50%</span>
-            </div>
-            <button class="btn btn-primary w-100" id="btn-calculate" style="width:100%; margin-top:1rem;">Kostenpotenziale prüfen</button>
-          </div>
-          <div class="calc-result card-glass" id="calc-results">
-            <h3 class="calc-result-title">Ihr Szenario</h3>
-            <p>Bitte füllen Sie die Felder aus und klicken Sie auf "Kostenpotenziale prüfen".</p>
-            <span class="highlight-savings" id="calc-savings-display" style="display:none;"></span>
+            <strong>CO<span>BOT</span>ERA GMBH</strong>
+            <small>AUTOMATISIERUNG. PARTNERSCHAFT. ZUKUNFT.</small>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE 8: ÜBER COBOTERA -->
-  <section id="page-ueber-uns" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 2rem;">Über Cobotera</h1>
-      <p style="margin-bottom: 3rem;">Wir machen moderne Automatisierung im gewerblichen und industriellen Bereich verständlich, nahbar und wirtschaftlich sinnvoll.</p>
-      
-      <div class="card-glass" style="margin-bottom: 3rem;">
-        <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Unsere Werte</h3>
-        <div class="ind-grid" style="display: flex; flex-direction: column; gap: 1.5rem;">
-          <div style="line-height: 1.5;"><strong style="color: var(--cyan); display: block; margin-bottom: 0.25rem;">Herstellerunabhängig:</strong> <span style="color: rgba(255,255,255,0.8);">Keine Bindung an einzelne Marken, nur das passende Modell zählt.</span></div>
-          <div style="line-height: 1.5;"><strong style="color: var(--cyan); display: block; margin-bottom: 0.25rem;">Praxisorientiert:</strong> <span style="color: rgba(255,255,255,0.8);">Wir konzipieren Lösungen, die im realen Arbeitsalltag überzeugen.</span></div>
-          <div style="line-height: 1.5;"><strong style="color: var(--cyan); display: block; margin-bottom: 0.25rem;">Transparent:</strong> <span style="color: rgba(255,255,255,0.8);">Ehrliche Beratung zu Möglichkeiten und physischen Grenzen der Systeme.</span></div>
+  <section class="section section-contact" id="kontakt">
+    <div class="contact-shell reveal">
+      <div class="contact-ring ring-one"></div>
+      <div class="contact-ring ring-two"></div>
+
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <span class="section-kicker">BERATUNG ANFRAGEN</span>
+          <h2>Welcher Bereich in Ihrem Unternehmen<br><span>eignet sich für Robotik?</span></h2>
+          <p>
+            Beschreiben Sie uns kurz Ihren Einsatzbereich. Wir melden uns persönlich bei Ihnen
+            und prüfen gemeinsam, welche Robotiklösung technisch sinnvoll und wirtschaftlich interessant sein kann.
+          </p>
+
+          <div class="contact-direct">
+            <span>Direkter Kontakt</span>
+            <a href="mailto:info@cobotera.de">info@cobotera.de</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card-glass">
-        <h3 style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between;">
-          <span>Die Geschäftsführung</span>
-          <span style="display: flex; align-items: center; font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; font-family: 'Inter', sans-serif;">
-            CO<span style="color:#00B4D8">BOT</span><span style="color:#8892a4">ERA</span>
-            <img src="assets/images/logo-3d-cropped.png" alt="Cobotera Logo" style="height: 24px; width: auto; margin-left: 8px;">
-          </span>
-        </h3>
-        <p style="margin-bottom: 1rem;">
-          <strong style="font-size: 1.2rem; color: var(--cyan); display: inline-block; margin-bottom: 0.25rem;">Emre Kaan Yildirim</strong><br>
-          <span style="color: rgba(255,255,255,0.9);">Gründer und Geschäftsführer der Cobotera GmbH.</span>
-        </p>
-        <p style="line-height: 1.6; color: rgba(255,255,255,0.7);">
-          <strong style="color: #fff;">Motivation:</strong> Cobotera wurde gegründet, um Unternehmen praxisnahe Automatisierungslösungen an die Hand zu geben, die Arbeitskräfte entlasten und Kostenstrukturen optimieren.
-        </p>
-      </div>
-    </div>
-  </section>
+        <div class="form-card" id="beratung-form">
+          <form action="https://formsubmit.co/info@cobotera.de" method="POST" id="consultation-form">
+            <input type="hidden" name="_subject" value="Neue Beratungsanfrage über cobotera.de">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.cobotera.de/?sent=1#kontakt">
+            <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
 
-  <!-- PAGE 9: KONTAKT (Form Fields) -->
-  <section id="page-kontakt" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 2rem;">Sprechen Sie uns an</h1>
-      <div class="contact-grid">
-        <div class="contact-form-wrapper card-light">
-          <form id="contact-form">
-            <div style="display:flex; gap: 1rem; flex-wrap:wrap;">
-              <div class="form-group" style="flex:1; min-width:200px;"><label>Vorname *</label><input type="text" class="form-control" required></div>
-              <div class="form-group" style="flex:1; min-width:200px;"><label>Nachname *</label><input type="text" class="form-control" required></div>
+            <div class="form-header">
+              <span>UNVERBINDLICHE ANFRAGE</span>
+              <p>Je genauer Ihre Angaben, desto gezielter können wir uns vorbereiten.</p>
             </div>
-            <div style="display:flex; gap: 1rem; flex-wrap:wrap;">
-              <div class="form-group" style="flex:1; min-width:200px;"><label>Unternehmen *</label><input type="text" class="form-control" required></div>
-              <div class="form-group" style="flex:1; min-width:200px;"><label>Position</label><input type="text" class="form-control"></div>
-            </div>
-            <div style="display:flex; gap: 1rem; flex-wrap:wrap;">
-              <div class="form-group" style="flex:1; min-width:200px;"><label>E-Mail *</label><input type="email" class="form-control" required></div>
-              <div class="form-group" style="flex:1; min-width:200px;"><label>Telefon</label><input type="tel" class="form-control"></div>
-            </div>
-            <div class="form-group">
-              <label>Branche</label>
-              <select class="form-control">
-                <option>Gebäudereinigung</option><option>Hotellerie</option><option>Fitness</option><option>Pflege/Gesundheit</option>
-                <option>Büroimmobilien</option><option>Einzelhandel</option><option>Einkaufszentren</option><option>Industrie</option>
-                <option>Lager/Logistik</option><option>Öffentliche Einrichtungen</option><option>Sonstige</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Gewünschte Lösung</label>
-              <select class="form-control">
-                <option>Reinigungsrobotik</option><option>Logistik- und Transportrobotik</option><option>Service- oder Lieferrobotik</option>
-                <option>Produktvorführung</option><option>Wirtschaftlichkeitsanalyse</option><option>Allgemeine Beratung</option>
-              </select>
-            </div>
-            <div style="display:flex; gap: 1rem; flex-wrap:wrap;">
-              <div class="form-group" style="flex:1; min-width:200px;"><label>Flächengröße</label><input type="text" class="form-control"></div>
-              <div class="form-group" style="flex:1; min-width:200px;">
-                <label>Interesse</label>
-                <select class="form-control">
-                  <option>Kauf</option><option>Miete</option><option>Beratung</option>
+
+            <div class="form-grid">
+              <label>
+                <span>Vorname *</span>
+                <input type="text" name="Vorname" required autocomplete="given-name">
+              </label>
+
+              <label>
+                <span>Nachname *</span>
+                <input type="text" name="Nachname" required autocomplete="family-name">
+              </label>
+
+              <label class="full">
+                <span>Unternehmen *</span>
+                <input type="text" name="Unternehmen" required autocomplete="organization">
+              </label>
+
+              <label>
+                <span>E-Mail *</span>
+                <input type="email" name="email" required autocomplete="email">
+              </label>
+
+              <label>
+                <span>Telefon</span>
+                <input type="tel" name="Telefon" autocomplete="tel">
+              </label>
+
+              <label>
+                <span>Branche</span>
+                <select name="Branche">
+                  <option value="">Bitte auswählen</option>
+                  <option>Facility Management / Gebäudereinigung</option>
+                  <option>Hotel / Hospitality</option>
+                  <option>Klinik / Pflege / Gesundheit</option>
+                  <option>Logistik / Lager / Industrie</option>
+                  <option>Fitnessstudio</option>
+                  <option>Retail / Einkaufszentrum</option>
+                  <option>Büro / Business Center</option>
+                  <option>Öffentliche Einrichtung</option>
+                  <option>Sonstige</option>
                 </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Nachricht</label>
-              <textarea class="form-control" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-              <label style="display:flex; align-items:flex-start; gap:0.5rem;">
-                <input type="checkbox" required style="margin-top:0.3rem;"> 
-                <span>Ich stimme der Verarbeitung meiner Daten gemäß der <a onclick="navigateTo('/datenschutz')" style="cursor:pointer; text-decoration:underline; color:#000;">Datenschutzerklärung</a> zu. *</span>
+              </label>
+
+              <label>
+                <span>Interesse</span>
+                <select name="Interesse" id="interest-select">
+                  <option value="">Bitte auswählen</option>
+                  <option>Reinigungsrobotik</option>
+                  <option>Transport & Logistik</option>
+                  <option>Service & Hospitality</option>
+                  <option>Sicherheit & Inspektion</option>
+                  <option>Humanoide & Speziallösungen</option>
+                  <option>Allgemeine Robotikberatung</option>
+                </select>
+              </label>
+
+              <label class="full">
+                <span>Ihre Nachricht</span>
+                <textarea name="Nachricht" rows="5" placeholder="Worum geht es konkret? Fläche, Standort, Aufgabe, gewünschter Zeitraum …"></textarea>
+              </label>
+
+              <label class="consent full">
+                <input type="checkbox" required name="Datenschutz" value="zugestimmt">
+                <span>
+                  Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden.
+                  Weitere Informationen finden Sie in der Datenschutzerklärung. *
+                </span>
               </label>
             </div>
-            <button type="submit" class="btn btn-primary">Anfrage absenden</button>
+
+            <button type="submit" class="submit-btn">
+              Anfrage absenden <span>→</span>
+            </button>
+
+            <div class="form-status" id="form-status" aria-live="polite"></div>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE 10: FAQ (All 15 FAQs in card-light) -->
-  <section id="page-faq" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 2rem;">Häufig gestellte Fragen</h1>
-      <div class="faq-list card-light">
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>1. Wie navigieren die Roboter sicher durch meine Räumlichkeiten?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Moderne Robotersysteme nutzen LiDAR, Kameras und Ultraschall zur sicheren Navigation.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>2. Ersetzen Reinigungsroboter mein bestehendes Personal?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Nein, sie unterstützen Ihr Personal bei zeitintensiven Routineaufgaben.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>3. Wie viel Zeit benötigt die Implementierung eines Roboters?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">In der Regel wenige Tage für Kartierung und Einrichtung.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>4. Welche Wartungsarbeiten müssen durchgeführt werden?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Leeren des Schmutzbehälters, Wasser auffüllen und Sensoren reinigen.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>5. Kann der Roboter Aufzüge selbstständig nutzen?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Ja, über spezielle Software-APIs oder Hardwaremodule (individuelle Prüfung nötig).</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>6. Was passiert bei einem technischen Defekt?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Fernwartung oder Technikereinsatz vor Ort durch Cobotera koordiniert.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>7. Gibt es Roboter auch zur Miete?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Ja, flexible Miet- oder Leasingmodelle werden angeboten.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>8. Wie laut sind die Reinigungsroboter im Betrieb?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Vergleichbar mit Industriestaubsaugern, oft mit leisem Eco-Modus.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>9. Funktionieren die Roboter auch bei völliger Dunkelheit?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Ja, durch LiDAR-Technologie unabhängig vom Umgebungslicht.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>10. Welche Bodenbeläge können gereinigt werden?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Fast alle gängigen Hartböden; Teppiche teilweise mit speziellen Modulen.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>11. Ist eine WLAN-Verbindung zwingend erforderlich?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Für Grundfunktionen nicht, aber für Flottenmanagement und Berichte nötig.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>12. Können No-Go-Areas definiert werden?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Ja, virtuelle Sperrzonen lassen sich per App einrichten.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>13. Wie lange hält der Akku im Betrieb?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Meist 3 bis 6 Stunden, mit automatischer Rückkehr zur Ladestation.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>14. Wie werden die Reinigungsmittel dosiert?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Meist über ein integriertes Dosiersystem elektronisch steuerbar.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
-            <span>15. Können die Geräte auch im Außenbereich eingesetzt werden?</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">Standardgeräte sind für innen; Speziallösungen für außen auf Anfrage.</div>
-        </div>
+  <section class="section faq-section" id="faq">
+    <div class="section-inner faq-grid">
+      <div class="section-heading reveal">
+        <span class="section-kicker">FAQ</span>
+        <h2>Häufige Fragen<br><span>vor dem Einstieg.</span></h2>
       </div>
-    </div>
-  </section>
 
-  <!-- PAGE 11: IMPRESSUM & PAGE 12: DATENSCHUTZ -->
-  <section id="page-impressum" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 2rem;">Impressum</h1>
-      <div class="legal-content card-light">
-        <p><strong>Cobotera GmbH</strong><br>Vertreten durch: Emre Kaan Yildirim</p>
+      <div class="faq-list reveal">
+        <details>
+          <summary>Ersetzen Roboter bestehende Mitarbeitende?</summary>
+          <p>Der typische Einsatz zielt darauf, repetitive Routinen zu übernehmen und bestehende Teams zu entlasten.</p>
+        </details>
+        <details>
+          <summary>Kann man Systeme vor dem Kauf testen?</summary>
+          <p>Je nach Lösung können Demonstrationen oder Pilotprojekte sinnvoll sein, um Leistung und Alltagstauglichkeit real zu prüfen.</p>
+        </details>
+        <details>
+          <summary>Gibt es Kauf- und Mietmodelle?</summary>
+          <p>Das hängt von Robotertyp, Hersteller und Projektumfang ab. Die verfügbaren Optionen werden projektbezogen betrachtet.</p>
+        </details>
+        <details>
+          <summary>Wie läuft die Einführung ab?</summary>
+          <p>Typischerweise über Analyse, Auswahl, Test, Einrichtung, Schulung und Übergabe in den Regelbetrieb.</p>
+        </details>
       </div>
     </div>
   </section>
-  <section id="page-datenschutz" class="page-section ambient-glow pt-nav">
-    <div class="container">
-      <h1 style="margin-bottom: 2rem;">Datenschutz</h1>
-      <div class="legal-content card-light">
-        <p>Datenschutzerklärung gemäß DSGVO.</p>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<script src="data/products.js"></script>
-<script src="js/calculator.js"></script>
-<script src="js/form.js"></script>
-<script src="js/app.js"></script>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand-lockup">
+      <img src="assets/images/logo-3d-cropped.png" alt="">
+      <div><strong>CO<span>BOT</span>ERA GMBH</strong><small>AUTOMATISIERUNG. PARTNERSCHAFT. ZUKUNFT.</small></div>
+    </div>
+    <div class="footer-meta">
+      <span>BERLIN · DEUTSCHLANDWEIT TÄTIG</span>
+      <a href="mailto:info@cobotera.de">INFO@COBOTERA.DE</a>
+      <span>© 2026 COBOTERA GMBH</span>
+    </div>
+  </div>
+</footer>
 
-<!-- Interactive Compass Arrow -->
-<script>
-(function() {
-  const container = document.getElementById('compass-container');
-  const needle = document.getElementById('compass-needle');
-  if (!container || !needle) return;
-
-  container.addEventListener('mousemove', function(e) {
-    const rect = container.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    // Calculate angle. -90 because 0 is right, but our pointer starts pointing up by default in the CSS?
-    // Wait, the .compass-pointer-container has width 0 height 0.
-    // .compass-pointer-line is bottom: 220px. That means it points UP.
-    // So 0 degrees in CSS means pointing UP.
-    // Math.atan2 returns angle where 0 is RIGHT, pi/2 is DOWN.
-    // So if e.clientX > centerX (mouse is right), atan2 is 0. We want 90deg.
-    // If e.clientY < centerY (mouse is up), atan2 is -pi/2. We want 0deg.
-    const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI) + 90;
-    needle.style.transform = `rotate(${angle}deg)`;
-  });
-
-  // Touch support for mobile
-  container.addEventListener('touchmove', function(e) {
-    const touch = e.touches[0];
-    const rect = container.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const angle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX) * (180 / Math.PI) + 90;
-    needle.style.transform = `rotate(${angle}deg)`;
-  });
-})();
-</script>
-
-<!-- Twinkling Starfield Background -->
-<script>
-(function() {
-  const canvas = document.getElementById('starfield');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let width, height;
-  let stars = [];
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  // Create stars
-  for (let i = 0; i < 150; i++) {
-    stars.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 1.5,
-      alpha: Math.random(),
-      speed: (Math.random() * 0.015) + 0.005,
-      direction: Math.random() > 0.5 ? 1 : -1
-    });
-  }
-
-  function animateStars() {
-    ctx.clearRect(0, 0, width, height);
-    for (let s of stars) {
-      s.alpha += s.speed * s.direction;
-      if (s.alpha >= 1) { 
-        s.alpha = 1; 
-        s.direction = -1; 
-      } else if (s.alpha <= 0.1) { 
-        s.alpha = 0.1; 
-        s.direction = 1; 
-        s.x = Math.random() * width; 
-        s.y = Math.random() * height; 
-      }
-      
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(100, 200, 255, ${s.alpha * 0.8})`;
-      ctx.fill();
-    }
-    requestAnimationFrame(animateStars);
-  }
-  animateStars();
-})();
-</script>
-
+<script src="js/cobotera-v3.js"></script>
 </body>
 </html>
