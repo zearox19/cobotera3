@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cobotera – Intelligente Robotik, messbare Entlastung</title>
+  <meta name="description" content="Cobotera begleitet Unternehmen bei Auswahl, Pilotierung, Einführung und Betreuung professioneller Robotiklösungen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cobotera-v3.css">
+</head>
+<body>
+
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<header class="site-header" id="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="#home" aria-label="Cobotera Startseite">
+      <img src="assets/images/logo-3d-cropped.png" alt="">
+      <span class="brand-lockup">
+        <span class="brand-name">CO<span>BOT</span>ERA <em>GMBH</em></span>
+        <small>AUTOMATISIERUNG. PARTNERSCHAFT. ZUKUNFT.</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#loesungen">Lösungen</a>
+      <a href="#branchen">Branchen</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#cobotera">Über uns</a>
+    </nav>
+
+    <a class="nav-cta" href="#beratung-form">Beratung anfragen</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-glow glow-one"></div>
+    <div class="hero-glow glow-two"></div>
+
+    <div class="hero-intro reveal">
+      <span class="eyebrow">INTELLIGENTE ROBOTIK FÜR UNTERNEHMEN</span>
+      <h1>Automatisierung.<br><span>Partnerschaft. Zukunft.</span></h1>
+      <p>
+        Cobotera verbindet moderne Robotik mit realen Betriebsabläufen –
+        von der Auswahl über Pilotprojekte bis zur Einführung und Betreuung.
+      </p>
+    </div>
+
+    <div class="compass-stage" id="compass-stage">
+      <div class="orbit orbit-a"></div>
+      <div class="orbit orbit-b"></div>
+      <div class="orbit orbit-c"></div>
+
+      <div class="compass-line horizontal"></div>
+      <div class="compass-line vertical"></div>
+      <div class="compass-line diagonal-one"></div>
+      <div class="compass-line diagonal-two"></div>
+
+      <div class="needle" id="needle">
+        <span class="needle-line"></span>
+        <span class="needle-tip"></span>
+      </div>
+
+      <div class="center-core">
+        <div class="center-halo"></div>
+        <div class="center-brand">
+          <img src="assets/images/logo-3d-cropped.png" alt="">
+          <span>CO<span>BOT</span>ERA</span>
+        </div>
+      </div>
+
+      <a class="nav-node node-top" href="#loesungen">
+        <span class="node-icon">01</span>
+        <span class="node-label">Lösungen</span>
+      </a>
+
+      <a class="nav-node node-top-right" href="#branchen">
+        <span class="node-icon">02</span>
+        <span class="node-label">Branchen</span>
+      </a>
+
+      <a class="nav-node node-right" href="#leistungen">
+        <span class="node-icon">03</span>
+        <span class="node-label">Leistungen</span>
+      </a>
+
+      <a class="nav-node node-bottom-right" href="#beratung-form">
+        <span class="node-icon">04</span>
+        <span class="node-label">Kontakt</span>
+      </a>
+
+      <a class="nav-node node-bottom" href="#prozess">
+        <span class="node-icon">05</span>
+        <span class="node-label">Einführung</span>
+      </a>
+
+      <a class="nav-node node-bottom-left" href="#faq">
+        <span class="node-icon">06</span>
+        <span class="node-label">FAQ</span>
+      </a>
+
+      <a class="nav-node node-left" href="#cobotera">
+        <span class="node-icon">07</span>
+        <span class="node-label">Über uns</span>
+      </a>
+
+      <a class="nav-node node-top-left" href="#portfolio">
+        <span class="node-icon">08</span>
+        <span class="node-label">Portfolio</span>
+      </a>
+    </div>
+
+    <div class="hero-bottom reveal">
+      <span>BERLIN</span>
+      <span class="dot-separator"></span>
+      <span>DEUTSCHLANDWEIT TÄTIG</span>
+      <span class="dot-separator"></span>
+      <span>B2B ROBOTICS</span>
+    </div>
+  </section>
+
+  <section class="section intro-section" id="loesungen">
+    <div class="section-inner">
+      <div class="section-heading reveal">
+        <span class="section-kicker">UNSERE LÖSUNGEN</span>
+        <h2>Robotik, die sich<br><span>in den Alltag integriert.</span></h2>
+        <p>
+          Nicht jede Technologie passt zu jedem Unternehmen. Deshalb betrachten wir
+          Einsatzbereich, Umgebung, Personalentlastung und Wirtschaftlichkeit gemeinsam.
+        </p>
+      </div>
+
+      <div class="solution-showcase" id="portfolio">
+        <article class="solution-panel panel-wide reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/pudu-cc1-pro-black-mainbildpng-2598505.png?v=1760624206&width=1946" alt="Reinigungsrobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">01</span>
+            <div>
+              <h3>Reinigungsrobotik</h3>
+              <p>Zum Beispiel mit dem PUDU CC1 Pro in Schwarz – für professionelle autonome Bodenreinigung in modernen Gewerbeumgebungen.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/ow001202409098695a9bbe48c4ed2d2ca9cdf9677bdefpng-2565060_5ddf9f6b-bdb9-4f41-b9d2-594d0e5358c7.png?v=1755077808&width=1946" alt="Logistikrobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">02</span>
+            <div>
+              <h3>Transport & Logistik</h3>
+              <p>Mit dem Orionstar CarryBot 2 für interne Transporte, Materialflüsse und wiederkehrende Lieferwege.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/front-viewpng-2564278_b75d78bf-d9ef-464d-80a6-ced2dfb4be7b.png?v=1755077779&width=1946" alt="Servicerobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">03</span>
+            <div>
+              <h3>Service & Hospitality</h3>
+              <p>Mit dem Pudu BellaBot Pro für Service, Hospitality, Speise- oder Materialtransport im Front-of-House.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/unitree-go2-x-1png-2762773.png?v=1780319194&width=1946" alt="Sicherheitsrobotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">04</span>
+            <div>
+              <h3>Sicherheit & Inspektion</h3>
+              <p>Mit dem Unitree Go2 X für Patrouillen, Geländeinspektion und moderne Sicherheits- oder Testkonzepte.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="solution-panel panel-wide reveal">
+          <img src="https://terra-robotics.de/cdn/shop/files/ubtech-walker-s2-1png-2729512.png?v=1773388155&width=1946" alt="Outdoor Robotik" onerror="this.style.opacity='.2'">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <span class="panel-number">05</span>
+            <div>
+              <h3>Humanoide & Speziallösungen</h3>
+              <p>Zum Beispiel mit dem UBtech Walker S2 für fortschrittliche Spezialanwendungen, Intralogistik und Innovation.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="branchen">
+    <div class="section-inner">
+      <div class="section-heading center reveal">
+        <span class="section-kicker">EINSATZBEREICHE</span>
+        <h2>Wo Routine Zeit bindet,<br><span>entsteht Automatisierungspotenzial.</span></h2>
+      </div>
+
+      <div class="industry-orbit reveal">
+        <div class="industry-core">
+          <span>COBOTERA</span>
+          <small>ROBOTICS</small>
+        </div>
+
+        <div class="industry-chip chip-1"><b>Facility</b><span>Management</span></div>
+        <div class="industry-chip chip-2"><b>Hotels</b><span>Hospitality</span></div>
+        <div class="industry-chip chip-3"><b>Kliniken</b><span>Gesundheit</span></div>
+        <div class="industry-chip chip-4"><b>Logistik</b><span>Warehouse</span></div>
+        <div class="industry-chip chip-5"><b>Fitness</b><span>Studios</span></div>
+        <div class="industry-chip chip-6"><b>Retail</b><span>Handel</span></div>
+        <div class="industry-chip chip-7"><b>Büro</b><span>Business Center</span></div>
+        <div class="industry-chip chip-8"><b>Öffentlich</b><span>Einrichtungen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="leistungen">
+    <div class="section-inner">
+      <div class="section-heading reveal">
+        <span class="section-kicker">UNSER ANSATZ</span>
+        <h2>Nicht der Roboter zuerst.<br><span>Der Prozess zuerst.</span></h2>
+        <p>
+          Robotik funktioniert dann am besten, wenn Technik, Bedienung, Infrastruktur und
+          Wirtschaftlichkeit von Anfang an gemeinsam gedacht werden.
+        </p>
+      </div>
+
+      <div class="service-flow">
+        <div class="service-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Bedarf analysieren</h3>
+            <p>Flächen, Wege, Frequenzen, Personalaufwand und Rahmenbedingungen erfassen.</p>
+          </div>
+        </div>
+        <div class="service-step reveal">
+          <div class="step-num">02</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Technologie auswählen</h3>
+            <p>Geeignete Systeme und Einsatzszenarien vergleichen und bewerten.</p>
+          </div>
+        </div>
+        <div class="service-step reveal">
+          <div class="step-num">03</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Pilotieren</h3>
+            <p>Technologie unter realen Bedingungen testen und die Alltagstauglichkeit prüfen.</p>
+          </div>
+        </div>
+        <div class="service-step reveal">
+          <div class="step-num">04</div>
+          <div class="step-line"></div>
+          <div class="step-copy">
+            <h3>Einführen & betreuen</h3>
+            <p>Installation, Schulung, Übergabe und langfristige Unterstützung koordinieren.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="prozess">
+    <div class="section-inner process-grid">
+      <div class="process-visual reveal">
+        <div class="scan-line"></div>
+        <div class="process-rings">
+          <span class="p-ring p1"></span>
+          <span class="p-ring p2"></span>
+          <span class="p-ring p3"></span>
+        </div>
+        <div class="process-center">
+          <span>01—04</span>
+          <b>ROBOTICS<br>IMPLEMENTATION</b>
+        </div>
+      </div>
+
+      <div class="process-copy reveal">
+        <span class="section-kicker">EINFÜHRUNG</span>
+        <h2>Von der Idee bis<br><span>zum produktiven Einsatz.</span></h2>
+        <p>
+          Eine gute Einführung reduziert Fehlentscheidungen und stellt sicher,
+          dass die Lösung nicht nur technisch funktioniert, sondern auch im Alltag angenommen wird.
+        </p>
+
+        <div class="process-badges">
+          <span>DEMO</span>
+          <span>PILOT</span>
+          <span>MAPPING</span>
+          <span>TRAINING</span>
+          <span>AFTER-SALES</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cobotera">
+    <div class="section-inner about-grid">
+      <div class="about-copy reveal">
+        <span class="section-kicker">ÜBER COBOTERA</span>
+        <h2>Robotik verständlich.<br><span>Einführung professionell.</span></h2>
+        <p>
+          Cobotera ist ein Berliner Robotikunternehmen für professionelle B2B-Anwendungen.
+          Wir begleiten Unternehmen nicht nur beim Kauf eines Geräts, sondern beim gesamten Einführungsprozess.
+        </p>
+
+        <div class="about-points">
+          <span>Herstellerübergreifende Auswahl</span>
+          <span>Praxisorientierte Beratung</span>
+          <span>Demonstrationen & Pilotprojekte</span>
+          <span>Installation, Schulung & Betreuung</span>
+        </div>
+
+        <div class="founder">
+          <b>EMRE KAAN YILDIRIM</b>
+          <span>Gründer & Geschäftsführer · Berlin</span>
+        </div>
+      </div>
+
+      <div class="about-logo reveal">
+        <div class="logo-aura"></div>
+        <div class="about-brand-lockup">
+          <img src="assets/images/logo-3d-cropped.png" alt="">
+          <div>
+            <strong>CO<span>BOT</span>ERA GMBH</strong>
+            <small>AUTOMATISIERUNG. PARTNERSCHAFT. ZUKUNFT.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-contact" id="kontakt">
+    <div class="contact-shell reveal">
+      <div class="contact-ring ring-one"></div>
+      <div class="contact-ring ring-two"></div>
+
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <span class="section-kicker">BERATUNG ANFRAGEN</span>
+          <h2>Welcher Bereich in Ihrem Unternehmen<br><span>eignet sich für Robotik?</span></h2>
+          <p>
+            Beschreiben Sie uns kurz Ihren Einsatzbereich. Wir melden uns persönlich bei Ihnen
+            und prüfen gemeinsam, welche Robotiklösung technisch sinnvoll und wirtschaftlich interessant sein kann.
+          </p>
+
+          <div class="contact-direct">
+            <span>Direkter Kontakt</span>
+            <a href="mailto:info@cobotera.de">info@cobotera.de</a>
+          </div>
+        </div>
+
+        <div class="form-card" id="beratung-form">
+          <form action="https://formsubmit.co/info@cobotera.de" method="POST" id="consultation-form">
+            <input type="hidden" name="_subject" value="Neue Beratungsanfrage über cobotera.de">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.cobotera.de/?sent=1#kontakt">
+            <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
+
+            <div class="form-header">
+              <span>UNVERBINDLICHE ANFRAGE</span>
+              <p>Je genauer Ihre Angaben, desto gezielter können wir uns vorbereiten.</p>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                <span>Vorname *</span>
+                <input type="text" name="Vorname" required autocomplete="given-name">
+              </label>
+
+              <label>
+                <span>Nachname *</span>
+                <input type="text" name="Nachname" required autocomplete="family-name">
+              </label>
+
+              <label class="full">
+                <span>Unternehmen *</span>
+                <input type="text" name="Unternehmen" required autocomplete="organization">
+              </label>
+
+              <label>
+                <span>E-Mail *</span>
+                <input type="email" name="email" required autocomplete="email">
+              </label>
+
+              <label>
+                <span>Telefon</span>
+                <input type="tel" name="Telefon" autocomplete="tel">
+              </label>
+
+              <label>
+                <span>Branche</span>
+                <select name="Branche">
+                  <option value="">Bitte auswählen</option>
+                  <option>Facility Management / Gebäudereinigung</option>
+                  <option>Hotel / Hospitality</option>
+                  <option>Klinik / Pflege / Gesundheit</option>
+                  <option>Logistik / Lager / Industrie</option>
+                  <option>Fitnessstudio</option>
+                  <option>Retail / Einkaufszentrum</option>
+                  <option>Büro / Business Center</option>
+                  <option>Öffentliche Einrichtung</option>
+                  <option>Sonstige</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Interesse</span>
+                <select name="Interesse" id="interest-select">
+                  <option value="">Bitte auswählen</option>
+                  <option>Reinigungsrobotik</option>
+                  <option>Transport & Logistik</option>
+                  <option>Service & Hospitality</option>
+                  <option>Sicherheit & Inspektion</option>
+                  <option>Humanoide & Speziallösungen</option>
+                  <option>Allgemeine Robotikberatung</option>
+                </select>
+              </label>
+
+              <label class="full">
+                <span>Ihre Nachricht</span>
+                <textarea name="Nachricht" rows="5" placeholder="Worum geht es konkret? Fläche, Standort, Aufgabe, gewünschter Zeitraum …"></textarea>
+              </label>
+
+              <label class="consent full">
+                <input type="checkbox" required name="Datenschutz" value="zugestimmt">
+                <span>
+                  Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden.
+                  Weitere Informationen finden Sie in der Datenschutzerklärung. *
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Anfrage absenden <span>→</span>
+            </button>
+
+            <div class="form-status" id="form-status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section" id="faq">
+    <div class="section-inner faq-grid">
+      <div class="section-heading reveal">
+        <span class="section-kicker">FAQ</span>
+        <h2>Häufige Fragen<br><span>vor dem Einstieg.</span></h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <details>
+          <summary>Ersetzen Roboter bestehende Mitarbeitende?</summary>
+          <p>Der typische Einsatz zielt darauf, repetitive Routinen zu übernehmen und bestehende Teams zu entlasten.</p>
+        </details>
+        <details>
+          <summary>Kann man Systeme vor dem Kauf testen?</summary>
+          <p>Je nach Lösung können Demonstrationen oder Pilotprojekte sinnvoll sein, um Leistung und Alltagstauglichkeit real zu prüfen.</p>
+        </details>
+        <details>
+          <summary>Gibt es Kauf- und Mietmodelle?</summary>
+          <p>Das hängt von Robotertyp, Hersteller und Projektumfang ab. Die verfügbaren Optionen werden projektbezogen betrachtet.</p>
+        </details>
+        <details>
+          <summary>Wie läuft die Einführung ab?</summary>
+          <p>Typischerweise über Analyse, Auswahl, Test, Einrichtung, Schulung und Übergabe in den Regelbetrieb.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand-lockup">
+      <img src="assets/images/logo-3d-cropped.png" alt="">
+      <div><strong>CO<span>BOT</span>ERA GMBH</strong><small>AUTOMATISIERUNG. PARTNERSCHAFT. ZUKUNFT.</small></div>
+    </div>
+    <div class="footer-meta">
+      <span>BERLIN · DEUTSCHLANDWEIT TÄTIG</span>
+      <a href="mailto:info@cobotera.de">INFO@COBOTERA.DE</a>
+      <span>© 2026 COBOTERA GMBH</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cobotera-v3.js"></script>
+</body>
+</html>
