@@ -729,7 +729,40 @@ footer{
   .section{padding:86px 18px}
   .solution-showcase{grid-template-columns:1fr}
   .solution-panel,.solution-panel.panel-wide{grid-column:auto;min-height:360px;border-radius:19px}
-  .industry-orbit{transform:scale(.57);margin-top:-120px;margin-bottom:-150px}
+  #branchen .section-heading h2{
+    font-size:clamp(1.7rem,8vw,2.15rem);
+    overflow-wrap:normal;
+  }
+  .industry-orbit{
+    width:100%;
+    height:auto;
+    aspect-ratio:auto;
+    margin:38px auto 0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    transform:none;
+    border-radius:0;
+  }
+  .industry-orbit:before,.industry-orbit:after{display:none}
+  .industry-core{
+    position:relative;
+    left:auto;top:auto;
+    grid-column:1/-1;
+    width:126px;height:126px;
+    margin:0 auto 10px;
+    transform:none;
+  }
+  .industry-chip,
+  .industry-chip[class*="chip-"]{
+    position:relative;
+    inset:auto;
+    width:100%;
+    min-width:0;
+    padding:15px 8px;
+    transform:none;
+    animation:none;
+  }
   .service-step{grid-template-columns:45px 1fr}
   .step-line{display:none}
   .about-points{grid-template-columns:1fr}
