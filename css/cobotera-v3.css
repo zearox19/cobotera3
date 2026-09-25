@@ -1176,7 +1176,7 @@ footer{
 @media(max-width:620px){
   .brand{min-width:205px!important;height:52px!important}
   .brand>img{width:38px!important;height:38px!important}
-  .brand-name{font-size:.74rem;letter-spacing:.13em}
+  .brand-name{font-size:.68rem;letter-spacing:.08em}
   .brand-lockup small{display:none}
   .about-brand-lockup{padding:24px 20px;gap:14px}
   .about-brand-lockup img{width:74px;height:74px}
