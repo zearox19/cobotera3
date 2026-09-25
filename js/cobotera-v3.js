@@ -47,62 +47,76 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 const roboticsSolutions = [
   {
-    id:'reinigung', title:'Reinigungsrobotik', image:'assets/images/robot_cleaning_nobrand.jpg',
+    id:'reinigung', title:'Reinigungsrobotik',
     description:'Autonome Bodenreinigung für kleine Flächen bis zu anspruchsvollen Industrieumgebungen.',
     models:['PUDU ET1','Gausium Phantas','Gausium Mira','iKitbot ONE S55 PRO','PUDU CC1','PUDU CC1 Pro','PUDU CC1 Pro Disc','Gausium Omnie','Gausium Vacuum 40','PUDU MT1 Serie','Gausium Beetle Pro','Gausium Scrubber 50 Pro','PUDU BG1 Pro','Gausium Scrubber 75','Gausium Marvel']
   },
   {
-    id:'service', title:'Service & Empfang', image:'assets/images/robot_service_nobrand.jpg',
+    id:'service', title:'Service & Empfang',
     description:'Service, Lieferung, Empfang, Besucherführung und Information in gewerblichen Innenbereichen.',
     models:['PUDU PuduBot 2','PUDU BellaBot Pro','PUDU KettyBot Pro','PUDU HolaBot','PUDU FlashBot Max','OrionStar LuckiBot','OrionStar LuckiBot Pro','LuckiBot Pro Autodoor','OrionStar LuckiBot Plus','OrionStar CarryBot 2','GreetingBot Mini','GreetingBot Nova','GreetingBot AD']
   },
   {
-    id:'transport', title:'Transport & Intralogistik', image:'assets/images/robot-logistics.jpg',
+    id:'transport', title:'Transport & Intralogistik',
     description:'Autonomer Materialfluss von kompakten Transporten bis zur Palettenhandhabung.',
     models:['PUDU T150','PUDU T300','PUDU T600 Serie','PUDU MP2000','DOBOT AMB-300XS AMMR']
   },
   {
-    id:'cobots', title:'Kollaborative Robotik', image:'assets/images/robot-warehouse.jpg',
+    id:'cobots', title:'Kollaborative Robotik',
     description:'Roboterarme, Trainingssysteme und fertige Anwendungen für Bildung, Service und Industrie.',
     models:['DOBOT Magician','DOBOT Magician E6','DOBOT Nova 2','DOBOT Nova 5','DOBOT CR3A','DOBOT CR5A','DOBOT CR7A','DOBOT CR10A','DOBOT CR12A','DOBOT CR16A','DOBOT CR20A','DOBOT CR30H Serie','DOBOT CRAF Serie','DOBOT CRAP Serie','DOBOT MG400','DOBOT M1 Pro','DOBOT Magician E6 Station','DOBOT CR5A Ausbildungspaket','DOBOT X-Trainer','DOBOT Pocket Go','DOBOT Magician Go','DOBOT NOVA2 Coffee Bar']
   },
   {
-    id:'vierbeinig', title:'Vierbeinige Robotik', image:'assets/images/robot-security.jpg',
+    id:'vierbeinig', title:'Vierbeinige Robotik',
     description:'Mobile Plattformen für Inspektion, Forschung, Sicherheit und anspruchsvolles Gelände.',
     models:['Unitree Go2','Unitree Go2 EDU','Unitree Go2W','Unitree Go2W EDU','Unitree Go2 X','Unitree AS2 Serie','Unitree AS2 EDU','Unitree A2 Serie','Unitree A2-W Serie','Unitree B2 Serie','Unitree B2-W','PUDU D5 Serie','DOBOT Rover X1 Explorer']
   },
   {
-    id:'humanoide', title:'Humanoide Robotik', image:'assets/images/robot-humanoid.jpg',
+    id:'humanoide', title:'Humanoide Robotik',
     description:'Menschenähnliche Systeme für Forschung, Industrie, Interaktion und Innovation.',
     models:['Unitree G1 Serie','Unitree H1 / H1-2','Unitree H2','Unitree R1 EDU','Unitree R1-A5 Smart','Unitree R1-A5-D Smart','Unitree R1-A5-D Flagship','Unitree R1-A7 Smart','Unitree R1-A7-D Smart','UBTECH Yanshee','UBTECH AlphaMini 2','UBTECH Cruzr S2','UBTECH Cruzr Y1','UBTECH Walker Tienkung','UBTECH Tienkung DEX','UBTECH Walker S2','UBTECH Walker C1','DOBOT LUMO L1','DOBOT ATOM Max / Data','DOBOT ATOM-W','DOBOT ATOM-D Education']
   },
   {
-    id:'outdoor', title:'Outdoor & Grünflächen', image:'assets/images/robot-outdoor.jpg',
+    id:'outdoor', title:'Outdoor & Grünflächen',
     description:'Modulare Lösungen für Rasenpflege, Schneeräumung, Laub und kommunale Außenflächen.',
     models:['Yarbo Core','Yarbo Mähmodul Pro','Yarbo Schneefräsenmodul','Yarbo Gebläsemodul','OrionStar MowiBot N1000 Lite','PUDU GT3','PUDU GT5','PUDU GT7']
   },
   {
-    id:'manipulation', title:'Roboterhände & Manipulatoren', image:'assets/images/robot-service.jpg',
+    id:'manipulation', title:'Roboterhände & Manipulatoren',
     description:'Mobile Arme, dextröse Hände und Teleoperation für intelligente Manipulation.',
     models:['Unitree Dex3-1','Unitree Dex3-1 Tactile','Unitree D1 Arm','Unitree Z1 Air','Unitree Z1 Pro','Inspire RH5DG2','Inspire RH56DFX','Inspire RH56DFX Wrist','Inspire RH56BFX','Inspire RH56E2','Inspire RH56F1','Linker Hand L6','Linker Hand L10','Linker Hand L20','Linker Hand O6','Linker Hand L30','Linker Hand O30','Linker TA Teleoperationsarm','Linker EG Exoskelett Handschuh']
   },
   {
-    id:'bildung', title:'Bildung & Forschung', image:'assets/images/robot-care.jpg',
+    id:'bildung', title:'Bildung & Forschung',
     description:'Lern- und Entwicklungsplattformen für Schule, Hochschule, Labor und industrielle Ausbildung.',
     models:['UBTECH uKit AI','UBTECH UGOT','UBTECH Yanshee','UBTECH AlphaMini 2','DOBOT Magician','DOBOT Magician E6','Magician E6 Trainingsstation','DOBOT CR5A Ausbildungspaket','DOBOT Universal Plattform','DOBOT Magician Go','DOBOT Rover X1 Explorer','Unitree Go2 EDU','Unitree Go2W EDU','Unitree R1 EDU','Unitree G1 EDU','DOBOT ATOM-D Education']
   },
   {
-    id:'marketing', title:'Marketing & Promotion', image:'assets/images/robot-mall.jpg',
+    id:'marketing', title:'Marketing & Promotion',
     description:'Mobile Markenpräsenz, Kundenaktivierung und aufmerksamkeitsstarke Interaktion.',
     models:['OrionStar LuckiBot Plus','PUDU BellaBot Pro','PUDU KettyBot Pro','DOBOT LUMO L1','OrionStar LuckiBot Pro','OrionStar LuckiBot']
   }
 ];
+
+const featuredModels = {
+  reinigung: 'Gausium Phantas',
+  service: 'PUDU BellaBot Pro',
+  transport: 'PUDU T300',
+  cobots: 'DOBOT Nova 5',
+  vierbeinig: 'Unitree Go2',
+  humanoide: 'Unitree G1 Serie',
+  outdoor: 'Yarbo Core',
+  manipulation: 'Unitree Dex3-1',
+  bildung: 'UBTECH UGOT',
+  marketing: 'LuckiBot Plus'
+};
 
 roboticsSolutions.forEach(solution => {
   const products = window.ROBOT_PRODUCT_DATA?.[solution.id];
   if (!Array.isArray(products) || !products.length) return;
   solution.products = products;
   solution.models = products.map(product => product.name);
+  solution.featured = products.find(product => product.name === featuredModels[solution.id]) || products[0];
 });
 
 const categoryGrid = document.getElementById('robotics-category-grid');
@@ -228,7 +242,7 @@ if (categoryGrid) {
     card.type = 'button';
     card.className = 'robotics-category-card reveal';
     card.dataset.solution = solution.id;
-    card.innerHTML = `<img src="${solution.image}" alt="" loading="lazy"><span class="category-shade"></span><span class="category-content"><small>${String(index + 1).padStart(2,'0')} · ${solution.models.length} MODELLE</small><strong>${solution.title}</strong><em>${solution.description}</em><b>Modelle auswählen →</b></span>`;
+    card.innerHTML = `<img src="${solution.featured.image}" alt="${solution.featured.name} Produktbild" loading="lazy"><span class="category-shade"></span><span class="category-content"><small>${String(index + 1).padStart(2,'0')} · ${solution.models.length} MODELLE</small><strong>${solution.title}</strong><em>${solution.description}</em><span class="category-model">Abgebildet: ${solution.featured.name}</span><b>Modelle auswählen →</b></span>`;
     card.addEventListener('click', () => openModelBrowser(solution));
     categoryGrid.appendChild(card);
     observer.observe(card);

@@ -372,15 +372,16 @@ button{font:inherit}
 }
 .robotics-category-card:nth-child(1),
 .robotics-category-card:nth-child(6){grid-column:span 2;min-height:350px}
-.robotics-category-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;transition:transform .45s ease,opacity .3s ease}
-.robotics-category-card .category-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,8,18,.97) 0%,rgba(2,8,18,.82) 42%,rgba(2,8,18,.22) 100%)}
-.category-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;min-height:inherit;padding:30px;max-width:650px}
+.robotics-category-card img{position:absolute;right:3%;top:5%;width:51%;height:90%;object-fit:contain;opacity:1;transition:transform .45s ease}
+.robotics-category-card .category-shade{position:absolute;inset:0;background:linear-gradient(90deg,#071322 0%,rgba(7,19,34,.96) 38%,rgba(7,19,34,.2) 72%,rgba(7,19,34,0) 100%)}
+.category-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;min-height:inherit;padding:30px;max-width:58%}
 .category-content small{font:500 .66rem/1.3 'Montserrat',sans-serif;letter-spacing:.16em;color:var(--cyan);margin-bottom:12px}
 .category-content strong{font:500 clamp(1.35rem,2.3vw,2.25rem)/1.1 'Montserrat',sans-serif;letter-spacing:-.02em;margin-bottom:10px}
 .category-content em{font-style:normal;color:#b6c3d4;max-width:540px;font-size:.9rem;line-height:1.55}
-.category-content b{margin-top:20px;font:500 .67rem/1 'Montserrat',sans-serif;letter-spacing:.13em;color:#fff}
+.category-model{margin-top:12px;color:#8fe0e9;font-size:.75rem;line-height:1.35}
+.category-content b{margin-top:18px;font:500 .67rem/1 'Montserrat',sans-serif;letter-spacing:.13em;color:#fff}
 .robotics-category-card:hover,.robotics-category-card.active{transform:translateY(-3px);border-color:rgba(29,214,239,.5);box-shadow:0 18px 45px rgba(0,0,0,.25),0 0 32px rgba(29,214,239,.07)}
-.robotics-category-card:hover img,.robotics-category-card.active img{transform:scale(1.035);opacity:.75}
+.robotics-category-card:hover img,.robotics-category-card.active img{transform:scale(1.045);opacity:1}
 .robotics-category-card:focus-visible,.robot-model-option:focus-visible,.model-browser-close:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 .robotics-model-browser{margin-top:24px;padding:30px;border:1px solid rgba(29,214,239,.25);border-radius:22px;background:linear-gradient(145deg,rgba(8,24,40,.98),rgba(4,12,25,.98));box-shadow:0 25px 70px rgba(0,0,0,.28)}
 .robotics-model-browser[hidden]{display:none}
@@ -390,7 +391,7 @@ button{font:inherit}
 .model-browser-close{flex:0 0 42px;width:42px;height:42px;border:1px solid rgba(255,255,255,.15);border-radius:50%;background:rgba(255,255,255,.04);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer}
 .robot-model-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .robot-model-option{display:flex;min-height:270px;padding:12px;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:10px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(255,255,255,.035);color:#fff;text-align:left;cursor:pointer;transition:.2s ease;overflow:hidden}
-.robot-model-image{display:flex;width:100%;height:178px;align-items:center;justify-content:center;padding:12px;border-radius:10px;background:linear-gradient(145deg,#f8fafc,#dfe8f2)}
+.robot-model-image{display:flex;width:100%;height:178px;align-items:center;justify-content:center;padding:12px;border-radius:10px;background:rgba(12,40,61,.7)}
 .robot-model-image img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .3s ease}
 .robot-model-option:hover .robot-model-image img{transform:scale(1.045)}
 .robot-model-option .robot-model-name{font:500 .9rem/1.35 'Montserrat',sans-serif;padding:2px 3px 0}
@@ -405,7 +406,7 @@ button{font:inherit}
 .robot-detail-close{position:sticky;z-index:3;top:0;float:right;width:44px;height:44px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:#0b1727;color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
 .robot-detail-close:focus-visible,.robot-detail-cta:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 .robot-detail-hero{display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr);gap:34px;align-items:center;clear:both}
-.robot-detail-media{display:flex;min-height:390px;align-items:center;justify-content:center;padding:28px;border-radius:18px;background:linear-gradient(145deg,#fbfcfe,#dce6ef)}
+.robot-detail-media{display:flex;min-height:390px;align-items:center;justify-content:center;padding:28px;border-radius:18px;background:linear-gradient(145deg,#102b41,#081b2d)}
 .robot-detail-media img{display:block;width:100%;height:340px;object-fit:contain}
 .robot-detail-intro{padding-right:18px}
 .robot-detail-tag{margin:11px 0 8px;color:#86a3bd;font:500 .68rem/1.4 'Montserrat',sans-serif;letter-spacing:.11em;text-transform:uppercase}
@@ -1039,8 +1040,9 @@ footer{
   .robotics-solutions{margin-top:36px}
   .robotics-category-grid{gap:12px}
   .robotics-category-card,.robotics-category-card:nth-child(1),.robotics-category-card:nth-child(6){min-height:265px;border-radius:17px}
-  .robotics-category-card .category-shade{background:linear-gradient(0deg,rgba(2,8,18,.98) 0%,rgba(2,8,18,.78) 60%,rgba(2,8,18,.28) 100%)}
-  .category-content{padding:22px}
+  .robotics-category-card .category-shade{background:linear-gradient(0deg,#071322 0%,rgba(7,19,34,.96) 36%,rgba(7,19,34,.12) 82%)}
+  .robotics-category-card img{top:0;right:3%;width:63%;height:68%}
+  .category-content{padding:22px;max-width:100%}
   .category-content em{font-size:.82rem}
   .robotics-model-browser{padding:20px 16px;border-radius:17px}
   .model-browser-head{gap:12px}
