@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cobotera | Intelligente Robotik, messbare Entlastung</title>
   <meta name="description" content="Cobotera begleitet Unternehmen bei Auswahl, Pilotierung, Einführung und Betreuung professioneller Robotiklösungen.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/cobotera-v3.css">
 </head>
 <body>
@@ -25,7 +22,7 @@
     </a>
 
     <nav class="desktop-nav">
-      <a href="#loesungen">Lösungen</a>
+      <a href="#robotikloesungen">Robotiklösungen</a>
       <a href="#branchen">Branchen</a>
       <a href="#leistungen">Leistungen</a>
       <a href="#cobotera">Über uns</a>
@@ -126,74 +123,29 @@
   <section class="section intro-section" id="loesungen">
     <div class="section-inner">
       <div class="section-heading reveal">
-        <span class="section-kicker">UNSERE LÖSUNGEN</span>
-        <h2>Robotik, die sich<br><span>in den Alltag integriert.</span></h2>
+        <span class="section-kicker">UNSERE ROBOTIKLÖSUNGEN</span>
+        <h2>Passende Robotik auswählen.<br><span>Direkt und übersichtlich.</span></h2>
         <p>
-          Nicht jede Technologie passt zu jedem Unternehmen. Deshalb betrachten wir
-          Einsatzbereich, Umgebung, Personalentlastung und Wirtschaftlichkeit gemeinsam.
+          Wählen Sie zuerst den Lösungsbereich und anschließend ein konkretes Modell.
+          Ihre Auswahl wird automatisch in die Beratungsanfrage übernommen.
         </p>
       </div>
 
-      <div class="solution-showcase" id="portfolio">
-        <article class="solution-panel panel-wide reveal">
-          <img src="https://terra-robotics.de/cdn/shop/files/pudu-cc1-pro-black-mainbildpng-2598505.png?v=1760624206&width=1946" alt="Reinigungsrobotik" onerror="this.style.opacity='.2'">
-          <div class="panel-overlay"></div>
-          <div class="panel-content">
-            <span class="panel-number">01</span>
-            <div>
-              <h3>Reinigungsrobotik</h3>
-              <p>Zum Beispiel mit dem PUDU CC1 Pro in Schwarz für professionelle autonome Bodenreinigung in modernen Gewerbeumgebungen.</p>
-            </div>
-          </div>
-        </article>
+      <div class="robotics-solutions" id="robotikloesungen">
+        <div class="robotics-category-grid" id="robotics-category-grid" aria-label="Robotiklösungen auswählen"></div>
 
-        <article class="solution-panel reveal">
-          <img src="https://terra-robotics.de/cdn/shop/files/ow001202409098695a9bbe48c4ed2d2ca9cdf9677bdefpng-2565060_5ddf9f6b-bdb9-4f41-b9d2-594d0e5358c7.png?v=1755077808&width=1946" alt="Logistikrobotik" onerror="this.style.opacity='.2'">
-          <div class="panel-overlay"></div>
-          <div class="panel-content">
-            <span class="panel-number">02</span>
+        <section class="robotics-model-browser" id="robotics-model-browser" hidden aria-live="polite">
+          <div class="model-browser-head">
             <div>
-              <h3>Transport & Logistik</h3>
-              <p>Mit dem Orionstar CarryBot 2 für interne Transporte, Materialflüsse und wiederkehrende Lieferwege.</p>
+              <span class="section-kicker" id="model-browser-kicker">MODELLE</span>
+              <h3 id="model-browser-title"></h3>
+              <p id="model-browser-copy"></p>
             </div>
+            <button class="model-browser-close" id="model-browser-close" type="button" aria-label="Modellauswahl schließen">×</button>
           </div>
-        </article>
-
-        <article class="solution-panel reveal">
-          <img src="https://terra-robotics.de/cdn/shop/files/front-viewpng-2564278_b75d78bf-d9ef-464d-80a6-ced2dfb4be7b.png?v=1755077779&width=1946" alt="Servicerobotik" onerror="this.style.opacity='.2'">
-          <div class="panel-overlay"></div>
-          <div class="panel-content">
-            <span class="panel-number">03</span>
-            <div>
-              <h3>Service & Hospitality</h3>
-              <p>Mit dem Pudu BellaBot Pro für Service, Hospitality, Speisetransport oder Materialtransport im Gästebereich.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="solution-panel reveal">
-          <img src="https://terra-robotics.de/cdn/shop/files/unitree-go2-x-1png-2762773.png?v=1780319194&width=1946" alt="Sicherheitsrobotik" onerror="this.style.opacity='.2'">
-          <div class="panel-overlay"></div>
-          <div class="panel-content">
-            <span class="panel-number">04</span>
-            <div>
-              <h3>Sicherheit & Inspektion</h3>
-              <p>Mit dem Unitree Go2 X für Patrouillen, Geländeinspektion sowie moderne Sicherheitskonzepte oder Testkonzepte.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="solution-panel panel-wide reveal">
-          <img src="https://terra-robotics.de/cdn/shop/files/ubtech-walker-s2-1png-2729512.png?v=1773388155&width=1946" alt="Outdoor Robotik" onerror="this.style.opacity='.2'">
-          <div class="panel-overlay"></div>
-          <div class="panel-content">
-            <span class="panel-number">05</span>
-            <div>
-              <h3>Humanoide & Speziallösungen</h3>
-              <p>Zum Beispiel mit dem UBtech Walker S2 für fortschrittliche Spezialanwendungen, Intralogistik und Innovation.</p>
-            </div>
-          </div>
-        </article>
+          <div class="robot-model-grid" id="robot-model-grid"></div>
+          <p class="model-browser-note">Noch unsicher? Wählen Sie „Allgemeine Beratung“ – wir vergleichen die passenden Systeme für Ihren Einsatz.</p>
+        </section>
       </div>
     </div>
   </section>
@@ -416,15 +368,17 @@
               </label>
 
               <label>
-                <span>Interesse</span>
-                <select name="Interesse" id="interest-select">
+                <span>Robotiklösung</span>
+                <select name="Robotiklösung" id="solution-category-select">
                   <option value="">Bitte auswählen</option>
-                  <option>Reinigungsrobotik</option>
-                  <option>Transport & Logistik</option>
-                  <option>Service & Hospitality</option>
-                  <option>Sicherheit & Inspektion</option>
-                  <option>Humanoide & Speziallösungen</option>
-                  <option>Allgemeine Robotikberatung</option>
+                  <option value="Allgemeine Robotikberatung">Allgemeine Robotikberatung</option>
+                </select>
+              </label>
+
+              <label class="full">
+                <span>Gewählter Roboter</span>
+                <select name="Gewählter Roboter" id="robot-model-select" disabled>
+                  <option value="">Zuerst Robotiklösung auswählen</option>
                 </select>
               </label>
 
@@ -436,8 +390,8 @@
               <label class="consent full">
                 <input type="checkbox" required name="Datenschutz" value="zugestimmt">
                 <span>
-                  Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden.
-                  Weitere Informationen finden Sie in der Datenschutzerklärung. *
+                  Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>
+                  zur Verarbeitung meiner Anfrage gelesen. *
                 </span>
               </label>
             </div>
@@ -482,6 +436,42 @@
   </section>
 </main>
 
+<div class="robot-detail-modal" id="robot-detail-modal" role="dialog" aria-modal="true" aria-labelledby="robot-detail-title" hidden>
+  <article class="robot-detail-panel" tabindex="-1">
+    <button class="robot-detail-close" id="robot-detail-close" type="button" aria-label="Produktdetails schließen">×</button>
+    <div class="robot-detail-hero">
+      <div class="robot-detail-media">
+        <img id="robot-detail-image" src="" alt="">
+      </div>
+      <div class="robot-detail-intro">
+        <span class="section-kicker" id="robot-detail-category"></span>
+        <p class="robot-detail-tag" id="robot-detail-tag"></p>
+        <h2 id="robot-detail-title"></h2>
+        <p id="robot-detail-copy"></p>
+        <div class="robot-detail-metrics" id="robot-detail-metrics"></div>
+      </div>
+    </div>
+    <div class="robot-detail-content">
+      <section>
+        <h3>Funktionen und Nutzen</h3>
+        <ul id="robot-detail-benefits"></ul>
+      </section>
+      <section>
+        <h3>Technische Daten</h3>
+        <dl id="robot-detail-specs"></dl>
+      </section>
+    </div>
+    <div class="robot-detail-fit">
+      <div>
+        <span>Typische Einsatzbereiche</span>
+        <p id="robot-detail-fit"></p>
+      </div>
+      <button class="robot-detail-cta" id="robot-detail-inquiry" type="button">Dieses Modell anfragen <span>→</span></button>
+    </div>
+    <p class="robot-detail-disclaimer">Technische Angaben gemäß Herstellerunterlagen, Stand September 2026. Werte können je nach Variante und Einsatzbedingungen abweichen.</p>
+  </article>
+</div>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-brand-lockup">
@@ -491,11 +481,14 @@
     <div class="footer-meta">
       <span>BERLIN · DEUTSCHLANDWEIT TÄTIG</span>
       <a href="mailto:info@cobotera.de">INFO@COBOTERA.DE</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
       <span>© 2026 COBOTERA GMBH</span>
     </div>
   </div>
 </footer>
 
+<script src="data/robot-products.js"></script>
 <script src="js/cobotera-v3.js"></script>
 </body>
 </html>
