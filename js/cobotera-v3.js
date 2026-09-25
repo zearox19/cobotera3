@@ -88,7 +88,7 @@ const roboticsSolutions = [
   },
   {
     id:'bildung', title:'Bildung & Forschung',
-    description:'Lern- und Entwicklungsplattformen für Schule, Hochschule, Labor und industrielle Ausbildung.',
+    description:'Robotik zum Lernen, Forschen und Entwickeln in Schulen, Hochschulen, Laboren und der industriellen Ausbildung.',
     models:['UBTECH uKit AI','UBTECH UGOT','UBTECH Yanshee','UBTECH AlphaMini 2','DOBOT Magician','DOBOT Magician E6','Magician E6 Trainingsstation','DOBOT CR5A Ausbildungspaket','DOBOT Universal Plattform','DOBOT Magician Go','DOBOT Rover X1 Explorer','Unitree Go2 EDU','Unitree Go2W EDU','Unitree R1 EDU','Unitree G1 EDU','DOBOT ATOM-D Education']
   },
   {
