@@ -48,7 +48,7 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const roboticsSolutions = [
   {
     id:'reinigung', title:'Reinigungsrobotik',
-    description:'Autonome Bodenreinigung für kleine Flächen bis zu anspruchsvollen Industrieumgebungen.',
+    description:'Autonome Bodenreinigung für gewerbliche Flächen und handgeführte Technik zur gezielten Nachreinigung.',
     models:['PUDU ET1','Gausium Phantas','Gausium Mira','iKitbot ONE S55 PRO','PUDU CC1','PUDU CC1 Pro','PUDU CC1 Pro Disc','Gausium Omnie','Gausium Vacuum 40','PUDU MT1 Serie','Gausium Beetle Pro','Gausium Scrubber 50 Pro','PUDU BG1 Pro','Gausium Scrubber 75','Gausium Marvel']
   },
   {
